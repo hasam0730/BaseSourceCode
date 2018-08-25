@@ -21,19 +21,33 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VBe-Fk-tyy">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <connections>
-                        <outlet property="dataSource" destination="-1" id="I5R-bx-l7w"/>
-                        <outlet property="delegate" destination="-1" id="4nM-0I-90W"/>
-                    </connections>
-                </tableView>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="fcS-Qa-Plv">
+                    <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                    <subviews>
+                        <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="cP7-2d-MeM">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VBe-Fk-tyy">
+                            <rect key="frame" x="0.0" y="56" width="375" height="591"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <outlet property="dataSource" destination="-1" id="I5R-bx-l7w"/>
+                                <outlet property="delegate" destination="-1" id="4nM-0I-90W"/>
+                            </connections>
+                        </tableView>
+                    </subviews>
+                </stackView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="fcS-Qa-Plv" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="7tW-LG-bcP"/>
+                <constraint firstItem="fcS-Qa-Plv" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Eze-bZ-4E7"/>
+                <constraint firstItem="fcS-Qa-Plv" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="iVo-Gt-Nwv"/>
+                <constraint firstItem="fcS-Qa-Plv" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="riW-B7-zBG"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <point key="canvasLocation" x="-59" y="12"/>
+            <point key="canvasLocation" x="-59.5" y="11.5"/>
         </view>
     </objects>
 </document>

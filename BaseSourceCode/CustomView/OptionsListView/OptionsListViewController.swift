@@ -46,4 +46,13 @@ extension OptionsListViewController: UITableViewDelegate {
     }
 }
 
+extension OptionsListViewController: UISearchBarDelegate {
+	func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+		
+	}
+	
+	func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+		searchBar.barTintColor = UIColor.brown
+	}
+}
 

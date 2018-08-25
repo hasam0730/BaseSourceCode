@@ -40,7 +40,6 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="rightPadding">
                                         <real key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="rightImage" value="ico_down"/>
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JSZ-2E-sbd">
@@ -74,7 +73,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ico_down" width="32" height="32"/>
         <image name="ico_user" width="24" height="24"/>
         <image name="image" width="947" height="947"/>
     </resources>

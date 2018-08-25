@@ -10,16 +10,22 @@ import UIKit
 
 class MenuTextField: IconTextField {
 
-    var value: String?
+    private var value: String?
+	private var selectedIndex: Int?
     private var tempedView: UIView?
-    var dataList: [String]? {
+    private var dataList: [String]? {
         didSet {
             guard let uwrData = dataList else { return }
             let vc = OptionsListViewController(nibName: "OptionsListViewController", bundle: nil)
             vc.stringList = uwrData
+			
+			// present list view
             UIWindow.topViewController()?.present(vc, animated: true, completion: {
                 vc.didSelect = {[weak self](data: String) in
                     self?.value = data
+					self?.selectedIndex = uwrData.index(of: data)
+					
+					// dismiss list view
                     UIWindow.topViewController()?.dismiss(animated: true, completion: {
                         self?.rightView = self?.tempedView
                         if self?.tempedView == nil {
@@ -32,7 +38,7 @@ class MenuTextField: IconTextField {
         }
     }
     
-    var callBackToSetData: (()->())?
+    var callback: (()->())?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -45,7 +51,15 @@ class MenuTextField: IconTextField {
         
         setupView()
     }
-    
+	
+	func setData(itemsList: [String]) {
+		dataList = itemsList
+	}
+	
+	func getSelectedData() -> (String?, Int?) {
+		return (value, selectedIndex)
+	}
+	
     private func setupView() {
         tintColor = .clear
         
@@ -56,6 +70,7 @@ class MenuTextField: IconTextField {
     }
     
     private func startingLoadingAnimation() {
+		rightViewMode = .always
         tempedView = rightView
         let indicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
         indicator.startAnimating()
@@ -64,7 +79,7 @@ class MenuTextField: IconTextField {
     
     @objc private func didTapTextField(_ sender: UITapGestureRecognizer) {
         startingLoadingAnimation()
-        callBackToSetData?()
+        callback?()
     }
 }
 

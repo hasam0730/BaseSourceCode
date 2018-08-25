@@ -16,11 +16,13 @@ class TheFirstViewController: BaseSourceCode.ViewController {
     var locationsList: [LocationEntity]?
     
     @IBAction func didSelectBtn(_ sender: UIButton) {
-        print("😀: \(tfMenu.value.defaultIfNil)")
+		
     }
     
     @IBAction func didFetchData(_ sender: UIButton) {
-
+		let somt = tfMenu.getSelectedData()
+		print(somt.0.defaultIfNil)
+		print(somt.1.defaultIfNil)
     }
     
 	override func viewDidLoad() {
@@ -46,7 +48,7 @@ class TheFirstViewController: BaseSourceCode.ViewController {
         print(formattedString.defaultIfNil)
         
         //--------------
-        tfMenu.callBackToSetData = {
+        tfMenu.callback = {
             self.requestData()
         }
 	}
@@ -67,7 +69,7 @@ class TheFirstViewController: BaseSourceCode.ViewController {
             let list = self.locationsList!.compactMap({
                 return $0.name
             })
-            self.tfMenu.dataList = list
+            self.tfMenu.setData(itemsList: list)
             return
         }
         let url = URL(string: "http://demo0368329.mockable.io/dataList")
@@ -87,7 +89,7 @@ class TheFirstViewController: BaseSourceCode.ViewController {
                             return $0.name
                         })
                         DispatchQueue.main.async {
-                            self.tfMenu.dataList = list
+                            self.tfMenu.setData(itemsList: list)
                         }
                     }
                 }
