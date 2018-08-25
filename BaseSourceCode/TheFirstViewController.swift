@@ -16,16 +16,27 @@ class TheFirstViewController: BaseSourceCode.ViewController {
 		super.viewDidLoad()
 		//
 		let value = "10.30"
-		print(value.formatDecimalNumber(withDecimalPlace: "2"))
+		print(value.formatDecimalNumber(withDecimalPlace: "2").defaultIfNil)
 		
 		let img = imageView.resizeImage(image: #imageLiteral(resourceName: "image"), with: CGSize(width: 100, height: 50))
 		imageView.image = img
 		
 		checkValidate()
+        
+        //--------------
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.groupingSeparator = " "
+//        formatter.groupingSeparator = Locale.current.groupingSeparator
+//        formatter.groupingSeparator = Locale(identifier: "FR_fr").groupingSeparator
+        
+        let amount = 2358000
+        let formattedString = formatter.string(for: amount)
+        print(formattedString.defaultIfNil)
 	}
 	
 	func checkValidate() {
-		let result = ValidateHandler.isCorrect(formatter: .phoneNumber, string: "d84237127312")
+		let result = ValidateHandler.isCorrect(formatter: .phoneNumber, string: "")
 		switch result {
 		case .Success(let mess):
 			print(mess)

@@ -15,7 +15,7 @@ extension String {
 		formatter.minimumFractionDigits = 0
 		formatter.maximumFractionDigits = 2
 		formatter.numberStyle = .decimal
-		formatter.locale = Locale(identifier: "vi_VN")
+		formatter.locale = Locale.current //(identifier: "de_DE")
 		guard let castedDoubleValue = Double(self) as NSNumber? else { return nil }
 		return formatter.string(from: castedDoubleValue)!
 	}
@@ -33,5 +33,4 @@ extension String {
 		guard let intValue = Int(self) else { return 0 }
 		return intValue
 	}
-	
 }

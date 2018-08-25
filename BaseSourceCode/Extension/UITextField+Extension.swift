@@ -20,4 +20,6 @@ extension UITextField {
 			let intValue = Int(valueTextField) else { return 0 }
 		return intValue
 	}
+    
+    
 }
