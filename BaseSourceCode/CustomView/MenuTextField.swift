@@ -32,6 +32,8 @@ class MenuTextField: IconTextField {
         }
     }
     
+    var callBackToSetData: (()->())?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -62,6 +64,7 @@ class MenuTextField: IconTextField {
     
     @objc private func didTapTextField(_ sender: UITapGestureRecognizer) {
         startingLoadingAnimation()
+        callBackToSetData?()
     }
 }
 

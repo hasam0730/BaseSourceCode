@@ -9,16 +9,18 @@
 import UIKit
 
 class TheFirstViewController: BaseSourceCode.ViewController {
-	
+//    https://www.mockable.io/a/#/space/demo0368329/rest/UAAAAAAAA
 	@IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var tfMenu: MenuTextField!
+    
+    var locationsList: [LocationEntity]?
     
     @IBAction func didSelectBtn(_ sender: UIButton) {
         print("😀: \(tfMenu.value.defaultIfNil)")
     }
     
     @IBAction func didFetchData(_ sender: UIButton) {
-        tfMenu.dataList = ["HCM", "HN", "HP"]
+
     }
     
 	override func viewDidLoad() {
@@ -44,7 +46,9 @@ class TheFirstViewController: BaseSourceCode.ViewController {
         print(formattedString.defaultIfNil)
         
         //--------------
-       
+        tfMenu.callBackToSetData = {
+            self.requestData()
+        }
 	}
 	
 	func checkValidate() {
@@ -57,4 +61,38 @@ class TheFirstViewController: BaseSourceCode.ViewController {
 		}
 		
 	}
+    
+    func requestData() {
+        if locationsList != nil {
+            let list = self.locationsList!.compactMap({
+                return $0.name
+            })
+            self.tfMenu.dataList = list
+            return
+        }
+        let url = URL(string: "http://demo0368329.mockable.io/dataList")
+        let task = URLSession.shared.dataTask(with: url!) { data, response, error in
+            if error != nil {
+                print(error.debugDescription)
+            } else {
+                if let usableData = data {
+                    let dicData = try! JSONSerialization.jsonObject(with: usableData, options: [])
+                    if let uwrdata = dicData as? [String: Any], let data = uwrdata["data"] as? [[String: Any]] {
+                        self.locationsList = [LocationEntity]()
+                        data.forEach({
+                            let location = LocationEntity(dicData: $0)
+                            self.locationsList?.append(location)
+                        })
+                        let list = self.locationsList!.compactMap({
+                            return $0.name
+                        })
+                        DispatchQueue.main.async {
+                            self.tfMenu.dataList = list
+                        }
+                    }
+                }
+            }
+        }
+        task.resume()
+    }
 }

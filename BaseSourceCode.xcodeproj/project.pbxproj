@@ -33,6 +33,7 @@
 		8F2609F9213156BC0003F507 /* OptionsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2609F7213156BB0003F507 /* OptionsListViewController.swift */; };
 		8F2609FA213156BC0003F507 /* OptionsListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F2609F8213156BC0003F507 /* OptionsListViewController.xib */; };
 		8F2609FC21315B2D0003F507 /* UIWindow+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2609FB21315B2D0003F507 /* UIWindow+Extension.swift */; };
+		8FED75D62131B91D0069B68A /* LocationEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FED75D52131B91D0069B68A /* LocationEntity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,7 @@
 		8F2609F7213156BB0003F507 /* OptionsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsListViewController.swift; sourceTree = "<group>"; };
 		8F2609F8213156BC0003F507 /* OptionsListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OptionsListViewController.xib; sourceTree = "<group>"; };
 		8F2609FB21315B2D0003F507 /* UIWindow+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+Extension.swift"; sourceTree = "<group>"; };
+		8FED75D52131B91D0069B68A /* LocationEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationEntity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +137,7 @@
 		8B030CD42120456B00E0A1AF /* BaseSourceCode */ = {
 			isa = PBXGroup;
 			children = (
+				8FED75D42131B9010069B68A /* Entity */,
 				8F2609F1213147510003F507 /* CustomView */,
 				8B129F7621305D660008FF02 /* Utility */,
 				8B129F71213059EB0008FF02 /* Constant */,
@@ -220,6 +223,14 @@
 				8F2609F8213156BC0003F507 /* OptionsListViewController.xib */,
 			);
 			path = OptionsListView;
+			sourceTree = "<group>";
+		};
+		8FED75D42131B9010069B68A /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				8FED75D52131B91D0069B68A /* LocationEntity.swift */,
+			);
+			path = Entity;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -370,6 +381,7 @@
 				8F259C75213123550099F4D7 /* UICollectionView+Extension.swift in Sources */,
 				8F259C73213122880099F4D7 /* UITableView+Extension.swift in Sources */,
 				8B030D0A2120481600E0A1AF /* TheFirstViewController.swift in Sources */,
+				8FED75D62131B91D0069B68A /* LocationEntity.swift in Sources */,
 				8B030CDE2120456B00E0A1AF /* BaseSourceCode.xcdatamodeld in Sources */,
 				8F2609F5213148C90003F507 /* IconTextField.swift in Sources */,
 				8B129F7321305A100008FF02 /* ScreenSize.swift in Sources */,
