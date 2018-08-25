@@ -17,6 +17,9 @@ class TheFirstViewController: BaseSourceCode.ViewController {
         print("😀: \(tfMenu.value.defaultIfNil)")
     }
     
+    @IBAction func didFetchData(_ sender: UIButton) {
+        tfMenu.dataList = ["HCM", "HN", "HP"]
+    }
     
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -41,7 +44,7 @@ class TheFirstViewController: BaseSourceCode.ViewController {
         print(formattedString.defaultIfNil)
         
         //--------------
-        tfMenu.dataList = ["HCM", "HN", "HP"]
+       
 	}
 	
 	func checkValidate() {

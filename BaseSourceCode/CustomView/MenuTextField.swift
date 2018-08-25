@@ -10,9 +10,27 @@ import UIKit
 
 class MenuTextField: IconTextField {
 
-    var dataList: [String]!
     var value: String?
     private var tempedView: UIView?
+    var dataList: [String]? {
+        didSet {
+            guard let uwrData = dataList else { return }
+            let vc = OptionsListViewController(nibName: "OptionsListViewController", bundle: nil)
+            vc.stringList = uwrData
+            UIWindow.topViewController()?.present(vc, animated: true, completion: {
+                vc.didSelect = {[weak self](data: String) in
+                    self?.value = data
+                    UIWindow.topViewController()?.dismiss(animated: true, completion: {
+                        self?.rightView = self?.tempedView
+                        if self?.tempedView == nil {
+                            self?.rightViewMode = .never
+                        }
+                        self?.text = data
+                    })
+                }
+            })
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -27,35 +45,23 @@ class MenuTextField: IconTextField {
     }
     
     private func setupView() {
+        tintColor = .clear
         
         let textViewRecognizer = UITapGestureRecognizer()
-        textViewRecognizer.addTarget(self, action: #selector(dosomething(_:)))
+        textViewRecognizer.addTarget(self, action: #selector(didTapTextField(_:)))
         
         addGestureRecognizer(textViewRecognizer)
     }
     
-    private func handleLoadingIndicator() {
+    private func startingLoadingAnimation() {
         tempedView = rightView
         let indicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
         indicator.startAnimating()
         rightView = indicator
     }
     
-    @objc private func dosomething(_ sender: UITapGestureRecognizer) {
-        guard dataList != nil else { fatalError("dataList is nil") }
-        
-        handleLoadingIndicator()
-        
-        let vc = OptionsListViewController(nibName: "OptionsListViewController", bundle: nil)
-        vc.stringList = dataList
-        vc.didSelect = {[weak self](data: String) in
-            self?.value = data
-            UIWindow.topViewController()?.dismiss(animated: true, completion: {
-                self?.rightView = self?.tempedView
-                self?.text = data
-            })
-        }
-        UIWindow.topViewController()?.present(vc, animated: true)
+    @objc private func didTapTextField(_ sender: UITapGestureRecognizer) {
+        startingLoadingAnimation()
     }
 }
 
