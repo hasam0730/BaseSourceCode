@@ -11,7 +11,13 @@ import UIKit
 class TheFirstViewController: BaseSourceCode.ViewController {
 	
 	@IBOutlet weak var imageView: UIImageView!
-	
+    @IBOutlet weak var tfMenu: MenuTextField!
+    
+    @IBAction func didSelectBtn(_ sender: UIButton) {
+        print("😀: \(tfMenu.value.defaultIfNil)")
+    }
+    
+    
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		//
@@ -33,6 +39,9 @@ class TheFirstViewController: BaseSourceCode.ViewController {
         let amount = 2358000
         let formattedString = formatter.string(for: amount)
         print(formattedString.defaultIfNil)
+        
+        //--------------
+        tfMenu.dataList = ["HCM", "HN", "HP"]
 	}
 	
 	func checkValidate() {

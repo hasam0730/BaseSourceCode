@@ -11,7 +11,7 @@ import UIKit
 class OptionsListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    let stringList = ["HCM", "HN", "HP", "CM"]
+    var stringList: [String]!
     var didSelect: ((_ data: String) -> Void)?
     
     override func viewDidLoad() {
