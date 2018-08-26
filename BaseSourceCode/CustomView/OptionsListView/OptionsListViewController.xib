@@ -22,14 +22,17 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="fcS-Qa-Plv">
-                    <rect key="frame" x="3" y="30" width="369" height="637"/>
+                    <rect key="frame" x="3" y="50" width="369" height="617"/>
                     <subviews>
                         <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="cP7-2d-MeM">
-                            <rect key="frame" x="0.0" y="0.0" width="369" height="296"/>
+                            <rect key="frame" x="0.0" y="0.0" width="369" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="FUe-Qm-1uN"/>
+                            </constraints>
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VBe-Fk-tyy">
-                            <rect key="frame" x="0.0" y="296" width="369" height="341"/>
+                            <rect key="frame" x="0.0" y="40" width="369" height="577"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <outlet property="dataSource" destination="-1" id="I5R-bx-l7w"/>
@@ -42,7 +45,7 @@
             <constraints>
                 <constraint firstItem="fcS-Qa-Plv" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="7tW-LG-bcP"/>
                 <constraint firstItem="fcS-Qa-Plv" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="3" id="Eze-bZ-4E7"/>
-                <constraint firstItem="fcS-Qa-Plv" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="iVo-Gt-Nwv"/>
+                <constraint firstItem="fcS-Qa-Plv" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="30" id="iVo-Gt-Nwv"/>
                 <constraint firstItem="fcS-Qa-Plv" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" constant="-3" id="riW-B7-zBG"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
