@@ -12,6 +12,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OptionsListViewController" customModule="BaseSourceCode" customModuleProvider="target">
             <connections>
+                <outlet property="containerView" destination="bnc-9f-6ow" id="5Oq-Y9-Y84"/>
+                <outlet property="searchBar" destination="cP7-2d-MeM" id="jS5-Ao-q1P"/>
                 <outlet property="tableView" destination="VBe-Fk-tyy" id="51U-Q5-oOB"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -21,32 +23,47 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="fcS-Qa-Plv">
-                    <rect key="frame" x="3" y="50" width="369" height="617"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bnc-9f-6ow">
+                    <rect key="frame" x="20" y="50" width="335" height="597"/>
                     <subviews>
-                        <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="cP7-2d-MeM">
-                            <rect key="frame" x="0.0" y="0.0" width="369" height="40"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="40" id="FUe-Qm-1uN"/>
-                            </constraints>
-                            <textInputTraits key="textInputTraits"/>
-                        </searchBar>
-                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VBe-Fk-tyy">
-                            <rect key="frame" x="0.0" y="40" width="369" height="577"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <outlet property="dataSource" destination="-1" id="I5R-bx-l7w"/>
-                                <outlet property="delegate" destination="-1" id="4nM-0I-90W"/>
-                            </connections>
-                        </tableView>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="fcS-Qa-Plv">
+                            <rect key="frame" x="0.0" y="0.0" width="335" height="597"/>
+                            <subviews>
+                                <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="cP7-2d-MeM">
+                                    <rect key="frame" x="0.0" y="0.0" width="335" height="40"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="40" id="FUe-Qm-1uN"/>
+                                    </constraints>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="-1" id="pYO-Yy-Whi"/>
+                                    </connections>
+                                </searchBar>
+                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VBe-Fk-tyy">
+                                    <rect key="frame" x="0.0" y="40" width="335" height="557"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <connections>
+                                        <outlet property="dataSource" destination="-1" id="I5R-bx-l7w"/>
+                                        <outlet property="delegate" destination="-1" id="4nM-0I-90W"/>
+                                    </connections>
+                                </tableView>
+                            </subviews>
+                        </stackView>
                     </subviews>
-                </stackView>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="fcS-Qa-Plv" secondAttribute="trailing" id="5nW-sV-YRS"/>
+                        <constraint firstItem="fcS-Qa-Plv" firstAttribute="leading" secondItem="bnc-9f-6ow" secondAttribute="leading" id="Hwi-vt-dko"/>
+                        <constraint firstAttribute="bottom" secondItem="fcS-Qa-Plv" secondAttribute="bottom" id="lsr-wY-GOz"/>
+                        <constraint firstItem="fcS-Qa-Plv" firstAttribute="top" secondItem="bnc-9f-6ow" secondAttribute="top" id="vpr-46-PVp"/>
+                    </constraints>
+                </view>
             </subviews>
             <constraints>
-                <constraint firstItem="fcS-Qa-Plv" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="7tW-LG-bcP"/>
-                <constraint firstItem="fcS-Qa-Plv" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="3" id="Eze-bZ-4E7"/>
-                <constraint firstItem="fcS-Qa-Plv" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="30" id="iVo-Gt-Nwv"/>
-                <constraint firstItem="fcS-Qa-Plv" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" constant="-3" id="riW-B7-zBG"/>
+                <constraint firstItem="bnc-9f-6ow" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="30" id="4Av-n9-vdY"/>
+                <constraint firstItem="bnc-9f-6ow" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" constant="-20" id="NGk-4d-Lu8"/>
+                <constraint firstItem="bnc-9f-6ow" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="cyf-uh-pwE"/>
+                <constraint firstItem="bnc-9f-6ow" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" constant="-20" id="zCR-Mh-7Sn"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="-176" y="-84"/>

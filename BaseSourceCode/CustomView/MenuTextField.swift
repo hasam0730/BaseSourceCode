@@ -10,12 +10,12 @@ import UIKit
 
 class MenuTextField: IconTextField {
 
-	let interactor = Interactor()
     private var value: String?
 	private var selectedIndex: Int?
     private var tempedView: UIView?
     private var dataList: [String]? {
         didSet {
+			UIWindow.topViewController()?.view.isUserInteractionEnabled = true
             guard let uwrDataList = dataList else { return }
             let vc = OptionsListViewController(nibName: "OptionsListViewController", bundle: nil)
             vc.stringList = uwrDataList
@@ -81,6 +81,7 @@ class MenuTextField: IconTextField {
     }
     
     @objc private func didTapTextField(_ sender: UITapGestureRecognizer) {
+		UIWindow.topViewController()?.view.isUserInteractionEnabled = false
         startingLoadingAnimation()
         callback?()
     }

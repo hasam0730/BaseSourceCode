@@ -1,3 +1,4 @@
+
 //
 //  OptionsListViewController.swift
 //  BaseSourceCode
@@ -11,7 +12,10 @@ import UIKit
 class OptionsListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    var stringList: [String]!
+	@IBOutlet weak var containerView: UIView!
+	@IBOutlet weak var searchBar: UISearchBar!
+	var stringList: [String]!
+	var filteredList: [String]!
     var didSelect: ((_ data: String?) -> Void)?
 	
 	required init?(coder aDecoder: NSCoder) {
@@ -30,16 +34,20 @@ class OptionsListViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-		
-//		modalPresentationStyle = .custom
-//		self.transitioningDelegate = self
-//		
+		tableView.register(NoResultCell.self)
 		//
 		let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(close))
 		gestureRecognizer.cancelsTouchesInView = false
 		gestureRecognizer.delegate = self
 		view.addGestureRecognizer(gestureRecognizer)
-
+		
+		//
+		containerView.layer.cornerRadius = 5.0
+		containerView.layer.masksToBounds = true
+		//
+		filteredList = stringList
+		//
+		tableView.tableFooterView = UIView()
     }
 	
 	@objc func close() {
@@ -55,12 +63,23 @@ class OptionsListViewController: UIViewController {
 
 extension OptionsListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return stringList.count
+		guard filteredList.count != 0 else {
+			tableView.allowsSelection = false
+			tableView.separatorStyle = .none
+			return 1
+		}
+		tableView.allowsSelection = true
+		tableView.separatorStyle = .singleLine
+		return filteredList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		if filteredList.count == 0 {
+			let cell = tableView.dequeue(NoResultCell.self, for: indexPath)
+			return cell
+		}
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
-        cell?.textLabel?.text = stringList[indexPath.row]
+        cell?.textLabel?.text = filteredList[indexPath.row]
         return cell!
     }
 }
@@ -68,17 +87,24 @@ extension OptionsListViewController: UITableViewDataSource {
 extension OptionsListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        didSelect?(stringList[indexPath.row])
+        didSelect?(filteredList[indexPath.row])
     }
 }
 
 extension OptionsListViewController: UISearchBarDelegate {
 	func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-		
+		if searchText == "" {
+			filteredList = stringList
+		} else {
+			filteredList = stringList.filter({
+				return $0.lowercased().trim().contains(searchText.lowercased().trim())
+			})
+		}
+		tableView.reloadData()
 	}
 	
 	func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-		searchBar.barTintColor = UIColor.brown
+		
 	}
 }
 
@@ -96,7 +122,7 @@ extension OptionsListViewController: UIViewControllerTransitioningDelegate {
 	}
 	
 	func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-		return FadeOutAnimationController()
+		return SlideOutAnimationController()
 	}
 }
 
@@ -104,5 +130,29 @@ extension OptionsListViewController: UIGestureRecognizerDelegate {
 	func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer,
 						   shouldReceive touch: UITouch) -> Bool {
 		return (touch.view === self.view)
+	}
+}
+
+
+class NoResultCell: UITableViewCell {
+	override func awakeFromNib() {
+		super.awakeFromNib()
+
+	}
+	
+	override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+		super.init(style: style, reuseIdentifier: reuseIdentifier)
+		
+		let label = UILabel(frame: contentView.frame)
+		label.frame.origin.y += 20
+		label.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
+		label.textColor = UIColor.gray
+		label.text = "No Result"
+		label.textAlignment = .center
+		contentView.addSubview(label)
+	}
+	
+	required init?(coder aDecoder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
 	}
 }

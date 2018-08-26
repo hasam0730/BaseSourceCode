@@ -28,8 +28,6 @@
 		8B1E8AEE2132396C00C883A5 /* FadeOutAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1E8AEB2132396B00C883A5 /* FadeOutAnimationController.swift */; };
 		8B1E8AEF2132396C00C883A5 /* SlideOutAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1E8AEC2132396B00C883A5 /* SlideOutAnimationController.swift */; };
 		8B1E8AF02132396C00C883A5 /* BounceAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1E8AED2132396B00C883A5 /* BounceAnimationController.swift */; };
-		8BE068AE21329B0900796C54 /* DismissAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE068AD21329B0800796C54 /* DismissAnimator.swift */; };
-		8BE068B021329B0D00796C54 /* Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE068AF21329B0D00796C54 /* Interactor.swift */; };
 		8F259C71213122250099F4D7 /* UIToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F259C70213122250099F4D7 /* UIToolbar.swift */; };
 		8F259C73213122880099F4D7 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F259C72213122880099F4D7 /* UITableView+Extension.swift */; };
 		8F259C75213123550099F4D7 /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F259C74213123550099F4D7 /* UICollectionView+Extension.swift */; };
@@ -88,8 +86,6 @@
 		8B1E8AEB2132396B00C883A5 /* FadeOutAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FadeOutAnimationController.swift; sourceTree = "<group>"; };
 		8B1E8AEC2132396B00C883A5 /* SlideOutAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideOutAnimationController.swift; sourceTree = "<group>"; };
 		8B1E8AED2132396B00C883A5 /* BounceAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BounceAnimationController.swift; sourceTree = "<group>"; };
-		8BE068AD21329B0800796C54 /* DismissAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissAnimator.swift; sourceTree = "<group>"; };
-		8BE068AF21329B0D00796C54 /* Interactor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interactor.swift; sourceTree = "<group>"; };
 		8F259C70213122250099F4D7 /* UIToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIToolbar.swift; sourceTree = "<group>"; };
 		8F259C72213122880099F4D7 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		8F259C74213123550099F4D7 /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
@@ -233,8 +229,6 @@
 		8F2609F6213156560003F507 /* OptionsListView */ = {
 			isa = PBXGroup;
 			children = (
-				8BE068AF21329B0D00796C54 /* Interactor.swift */,
-				8BE068AD21329B0800796C54 /* DismissAnimator.swift */,
 				8B1E8AED2132396B00C883A5 /* BounceAnimationController.swift */,
 				8B1E8AEB2132396B00C883A5 /* FadeOutAnimationController.swift */,
 				8B1E8AEC2132396B00C883A5 /* SlideOutAnimationController.swift */,
@@ -411,8 +405,6 @@
 				8B030CDE2120456B00E0A1AF /* BaseSourceCode.xcdatamodeld in Sources */,
 				8F2609F5213148C90003F507 /* IconTextField.swift in Sources */,
 				8B129F7321305A100008FF02 /* ScreenSize.swift in Sources */,
-				8BE068AE21329B0900796C54 /* DismissAnimator.swift in Sources */,
-				8BE068B021329B0D00796C54 /* Interactor.swift in Sources */,
 				8B030CD62120456B00E0A1AF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

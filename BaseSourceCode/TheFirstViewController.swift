@@ -48,9 +48,13 @@ class TheFirstViewController: BaseSourceCode.ViewController {
         print(formattedString.defaultIfNil)
         
         //--------------
-        tfMenu.callback = {
-            self.requestData()
-        }
+//        tfMenu.callback = {
+//            self.requestData()
+//        }
+		
+		tfMenu.callback = {
+			self.requestData()
+		}
 	}
 	
 	func checkValidate() {
