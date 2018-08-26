@@ -10,21 +10,24 @@ import UIKit
 
 class MenuTextField: IconTextField {
 
+	let interactor = Interactor()
     private var value: String?
 	private var selectedIndex: Int?
     private var tempedView: UIView?
     private var dataList: [String]? {
         didSet {
-            guard let uwrData = dataList else { return }
+            guard let uwrDataList = dataList else { return }
             let vc = OptionsListViewController(nibName: "OptionsListViewController", bundle: nil)
-            vc.stringList = uwrData
-			
+            vc.stringList = uwrDataList
+			vc.modalPresentationStyle = .custom
 			// present list view
             UIWindow.topViewController()?.present(vc, animated: true, completion: {
-                vc.didSelect = {[weak self](data: String) in
-                    self?.value = data
-					self?.selectedIndex = uwrData.index(of: data)
-					
+                vc.didSelect = {[weak self](data: String?) in
+					if let uwrData = data {
+						self?.value = uwrData
+						self?.selectedIndex = uwrDataList.index(of: uwrData)
+					}
+					self?.rightView = self?.tempedView
 					// dismiss list view
                     UIWindow.topViewController()?.dismiss(animated: true, completion: {
                         self?.rightView = self?.tempedView
@@ -82,4 +85,3 @@ class MenuTextField: IconTextField {
         callback?()
     }
 }
-

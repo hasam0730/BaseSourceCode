@@ -12,14 +12,40 @@ class OptionsListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     var stringList: [String]!
-    var didSelect: ((_ data: String) -> Void)?
-    
+    var didSelect: ((_ data: String?) -> Void)?
+	
+	required init?(coder aDecoder: NSCoder) {
+		super.init(coder: aDecoder)
+		
+	}
+	
+	override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+		super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+		modalPresentationStyle = .custom
+		transitioningDelegate = self
+	}
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+		
+//		modalPresentationStyle = .custom
+//		self.transitioningDelegate = self
+//		
+		//
+		let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(close))
+		gestureRecognizer.cancelsTouchesInView = false
+		gestureRecognizer.delegate = self
+		view.addGestureRecognizer(gestureRecognizer)
+
     }
+	
+	@objc func close() {
+		dismiss(animated: true, completion: nil)
+		didSelect?(nil)
+	}
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -56,3 +82,27 @@ extension OptionsListViewController: UISearchBarDelegate {
 	}
 }
 
+extension OptionsListViewController: UIViewControllerTransitioningDelegate {
+	func presentationController(forPresented presented: UIViewController,
+								presenting: UIViewController?,
+								source: UIViewController) -> UIPresentationController? {
+		return DimmingPresentationController(presentedViewController: presented, presenting: presenting)
+	}
+	
+	func animationController(forPresented presented: UIViewController,
+							 presenting: UIViewController,
+							 source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+		return BounceAnimationController()
+	}
+	
+	func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+		return FadeOutAnimationController()
+	}
+}
+
+extension OptionsListViewController: UIGestureRecognizerDelegate {
+	func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer,
+						   shouldReceive touch: UITouch) -> Bool {
+		return (touch.view === self.view)
+	}
+}

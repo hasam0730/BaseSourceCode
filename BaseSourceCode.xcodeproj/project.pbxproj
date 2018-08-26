@@ -23,6 +23,13 @@
 		8B129F7521305D640008FF02 /* ValidateHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B129F7421305D630008FF02 /* ValidateHandler.swift */; };
 		8B129F782130663F0008FF02 /* UIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B129F772130663F0008FF02 /* UIDevice.swift */; };
 		8B129F7A213070B50008FF02 /* Optional+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B129F79213070B50008FF02 /* Optional+Extension.swift */; };
+		8B1E8AE82132393F00C883A5 /* DimmingPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1E8AE72132393F00C883A5 /* DimmingPresentationController.swift */; };
+		8B1E8AEA2132394700C883A5 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1E8AE92132394700C883A5 /* GradientView.swift */; };
+		8B1E8AEE2132396C00C883A5 /* FadeOutAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1E8AEB2132396B00C883A5 /* FadeOutAnimationController.swift */; };
+		8B1E8AEF2132396C00C883A5 /* SlideOutAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1E8AEC2132396B00C883A5 /* SlideOutAnimationController.swift */; };
+		8B1E8AF02132396C00C883A5 /* BounceAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1E8AED2132396B00C883A5 /* BounceAnimationController.swift */; };
+		8BE068AE21329B0900796C54 /* DismissAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE068AD21329B0800796C54 /* DismissAnimator.swift */; };
+		8BE068B021329B0D00796C54 /* Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE068AF21329B0D00796C54 /* Interactor.swift */; };
 		8F259C71213122250099F4D7 /* UIToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F259C70213122250099F4D7 /* UIToolbar.swift */; };
 		8F259C73213122880099F4D7 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F259C72213122880099F4D7 /* UITableView+Extension.swift */; };
 		8F259C75213123550099F4D7 /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F259C74213123550099F4D7 /* UICollectionView+Extension.swift */; };
@@ -76,6 +83,13 @@
 		8B129F7421305D630008FF02 /* ValidateHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidateHandler.swift; sourceTree = "<group>"; };
 		8B129F772130663F0008FF02 /* UIDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDevice.swift; sourceTree = "<group>"; };
 		8B129F79213070B50008FF02 /* Optional+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+Extension.swift"; sourceTree = "<group>"; };
+		8B1E8AE72132393F00C883A5 /* DimmingPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DimmingPresentationController.swift; sourceTree = "<group>"; };
+		8B1E8AE92132394700C883A5 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		8B1E8AEB2132396B00C883A5 /* FadeOutAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FadeOutAnimationController.swift; sourceTree = "<group>"; };
+		8B1E8AEC2132396B00C883A5 /* SlideOutAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideOutAnimationController.swift; sourceTree = "<group>"; };
+		8B1E8AED2132396B00C883A5 /* BounceAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BounceAnimationController.swift; sourceTree = "<group>"; };
+		8BE068AD21329B0800796C54 /* DismissAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissAnimator.swift; sourceTree = "<group>"; };
+		8BE068AF21329B0D00796C54 /* Interactor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interactor.swift; sourceTree = "<group>"; };
 		8F259C70213122250099F4D7 /* UIToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIToolbar.swift; sourceTree = "<group>"; };
 		8F259C72213122880099F4D7 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		8F259C74213123550099F4D7 /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
@@ -219,6 +233,13 @@
 		8F2609F6213156560003F507 /* OptionsListView */ = {
 			isa = PBXGroup;
 			children = (
+				8BE068AF21329B0D00796C54 /* Interactor.swift */,
+				8BE068AD21329B0800796C54 /* DismissAnimator.swift */,
+				8B1E8AED2132396B00C883A5 /* BounceAnimationController.swift */,
+				8B1E8AEB2132396B00C883A5 /* FadeOutAnimationController.swift */,
+				8B1E8AEC2132396B00C883A5 /* SlideOutAnimationController.swift */,
+				8B1E8AE92132394700C883A5 /* GradientView.swift */,
+				8B1E8AE72132393F00C883A5 /* DimmingPresentationController.swift */,
 				8F2609F7213156BB0003F507 /* OptionsListViewController.swift */,
 				8F2609F8213156BC0003F507 /* OptionsListViewController.xib */,
 			);
@@ -366,6 +387,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8F259C79213124DF0099F4D7 /* Formatter+Extension.swift in Sources */,
+				8B1E8AEA2132394700C883A5 /* GradientView.swift in Sources */,
 				8F2609FC21315B2D0003F507 /* UIWindow+Extension.swift in Sources */,
 				8B129F6E213056E70008FF02 /* UIImageView+Extension.swift in Sources */,
 				8B030D082120470B00E0A1AF /* String+Extension.swift in Sources */,
@@ -374,17 +396,23 @@
 				8B129F70213057DD0008FF02 /* UITextField+Extension.swift in Sources */,
 				8F259C71213122250099F4D7 /* UIToolbar.swift in Sources */,
 				8F2609F32131477D0003F507 /* MenuTextField.swift in Sources */,
+				8B1E8AF02132396C00C883A5 /* BounceAnimationController.swift in Sources */,
 				8B129F7521305D640008FF02 /* ValidateHandler.swift in Sources */,
 				8B030CD82120456B00E0A1AF /* ViewController.swift in Sources */,
 				8B129F7A213070B50008FF02 /* Optional+Extension.swift in Sources */,
 				8B129F782130663F0008FF02 /* UIDevice.swift in Sources */,
+				8B1E8AEE2132396C00C883A5 /* FadeOutAnimationController.swift in Sources */,
 				8F259C75213123550099F4D7 /* UICollectionView+Extension.swift in Sources */,
 				8F259C73213122880099F4D7 /* UITableView+Extension.swift in Sources */,
 				8B030D0A2120481600E0A1AF /* TheFirstViewController.swift in Sources */,
 				8FED75D62131B91D0069B68A /* LocationEntity.swift in Sources */,
+				8B1E8AEF2132396C00C883A5 /* SlideOutAnimationController.swift in Sources */,
+				8B1E8AE82132393F00C883A5 /* DimmingPresentationController.swift in Sources */,
 				8B030CDE2120456B00E0A1AF /* BaseSourceCode.xcdatamodeld in Sources */,
 				8F2609F5213148C90003F507 /* IconTextField.swift in Sources */,
 				8B129F7321305A100008FF02 /* ScreenSize.swift in Sources */,
+				8BE068AE21329B0900796C54 /* DismissAnimator.swift in Sources */,
+				8BE068B021329B0D00796C54 /* Interactor.swift in Sources */,
 				8B030CD62120456B00E0A1AF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
