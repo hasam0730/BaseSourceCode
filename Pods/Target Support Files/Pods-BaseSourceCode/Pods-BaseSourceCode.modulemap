@@ -1,0 +1,6 @@
+framework module Pods_BaseSourceCode {
+  umbrella header "Pods-BaseSourceCode-umbrella.h"
+
+  export *
+  module * { export * }
+}

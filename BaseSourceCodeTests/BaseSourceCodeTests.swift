@@ -20,7 +20,17 @@ class BaseSourceCodeTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
-    
+	
+	func testToken() {
+		let user = UserLogin(username: nil, email: "hasam@gmail.com")
+		do {
+			let smt = try AuthController.shared.getPassword(user: user)
+			XCTAssertEqual(smt, "tokencuahieu")
+		} catch let error {
+			print("🗿: \(error.localizedDescription)")
+		}
+	}
+	
     func testExample() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.

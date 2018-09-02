@@ -8,17 +8,39 @@
 
 import UIKit
 
-class TheFirstViewController: BaseSourceCode.ViewController {
+class TheFirstViewController: BaseSourceCode.ViewController, Alertable {
 //    https://www.mockable.io/a/#/space/demo0368329/rest/UAAAAAAAA
 	@IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var tfMenu: MenuTextField!
-    
+    let user = UserLogin(username: nil, email: "hasam@gmail.com")
     var locationsList: [LocationEntity]?
     
     @IBAction func didSelectBtn(_ sender: UIButton) {
-		
+		do {
+			try AuthController.shared.signIn(user: user, password: "tokencuahieu")
+		} catch let error {
+			print("🛶: \(error.localizedDescription)")
+		}
     }
-    
+	
+	@IBAction func getPassword(_ sender: UIButton) {
+		do {
+			let smt = try AuthController.shared.getPassword(user: user)
+			showALert(smt)
+		} catch let error {
+			showALert(error.localizedDescription)
+		}
+	}
+	
+	@IBAction func clearKeychain(_ sender: UIButton) {
+		do {
+			try AuthController.shared.clearPassword(user: user)
+		} catch let error {
+			print("🗿: \(error.localizedDescription)")
+		}
+	}
+	
+	
     @IBAction func didFetchData(_ sender: UIButton) {
 		let somt = tfMenu.getSelectedData()
 		print(somt.0.defaultIfNil)
@@ -55,6 +77,9 @@ class TheFirstViewController: BaseSourceCode.ViewController {
 		tfMenu.callback = {
 			self.requestData()
 		}
+		
+		
+		//----------------
 	}
 	
 	func checkValidate() {

@@ -48,7 +48,35 @@ class OptionsListViewController: UIViewController {
 		filteredList = stringList
 		//
 		tableView.tableFooterView = UIView()
+		//
+		customSearchBar()
     }
+	
+	private func customSearchBar() {
+		searchBar.placeholder = "Type something here ..."
+		searchBar.tintColor = UIColor.white
+		searchBar.barTintColor = UIColor.green
+		searchBar.backgroundColor = UIColor.green
+		searchBar.backgroundImage = UIImage()
+		// searchBar.backgroundColor = headerColor
+		
+		//*-------------custom textField inside SearchBar
+		let textFieldInsideSearchBar = searchBar.value(forKey: "searchField") as? UITextField
+		textFieldInsideSearchBar?.backgroundColor = UIColor.cyan
+		textFieldInsideSearchBar?.textColor = UIColor.white
+		let textFieldInsideSearchBarLabel = textFieldInsideSearchBar!.value(forKey: "placeholderLabel") as? UILabel
+		textFieldInsideSearchBarLabel?.textColor = UIColor.white
+		
+		//*-------------custom clear button
+		let clearButton = textFieldInsideSearchBar?.value(forKey: "clearButton") as! UIButton
+		clearButton.setImage(clearButton.imageView?.image?.withRenderingMode(.alwaysTemplate), for: .normal)
+		clearButton.tintColor = UIColor.white
+		
+		//*--------------custom magnifier glass
+		let glassIconView = textFieldInsideSearchBar?.leftView as? UIImageView
+		glassIconView?.image = glassIconView?.image?.withRenderingMode(.alwaysTemplate)
+		glassIconView?.tintColor = UIColor.white
+	}
 	
 	@objc func close() {
 		dismiss(animated: true, completion: nil)

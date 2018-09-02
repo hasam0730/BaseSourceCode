@@ -1,0 +1,36 @@
+PODS:
+  - Alamofire (4.7.2)
+  - CryptoSwift (0.10.0)
+  - DynamicBlurView (2.0.2)
+  - GoogleMaps (2.7.0):
+    - GoogleMaps/Maps (= 2.7.0)
+  - GoogleMaps/Base (2.7.0)
+  - GoogleMaps/Maps (2.7.0):
+    - GoogleMaps/Base
+  - PopupDialog (0.7.1):
+    - DynamicBlurView (~> 2.0)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.7)
+  - CryptoSwift
+  - GoogleMaps
+  - PopupDialog (~> 0.7)
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Alamofire
+    - CryptoSwift
+    - DynamicBlurView
+    - GoogleMaps
+    - PopupDialog
+
+SPEC CHECKSUMS:
+  Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
+  CryptoSwift: 6c778d69282bed3b4e975ff97a79d074f20bb011
+  DynamicBlurView: aa6db4defc6e537eb86fc5e58dd3991666178399
+  GoogleMaps: f79af95cb24d869457b1f961c93d3ce8b2f3b848
+  PopupDialog: 39598b7d41719f5c025b4b70e62728bae7734fef
+
+PODFILE CHECKSUM: dce4fe1b80f7614387abfd624a55ceb9ca12b808
+
+COCOAPODS: 1.5.0.beta.1
