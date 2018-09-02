@@ -56,6 +56,24 @@ enum ResultRequest<T> {
 
 class NetworkManager {
 	
+	private static func handleNetworkResponseValidation(_ dataReponse: DataResponse<Any>?) -> ResultStatusCode<NetworkResponseError> {
+		guard let uwrDataResponse = dataReponse, let uwrResponse = uwrDataResponse.response else {
+			return .failure(NetworkResponseError.failed)
+		}
+		switch uwrResponse.statusCode {
+		case 200...299:
+			return .success
+		case 401...500:
+			return .failure(NetworkResponseError.authenticationError)
+		case 501...599:
+			return .failure(NetworkResponseError.badRequest)
+		case 600:
+			return .failure(NetworkResponseError.outdated)
+		default:
+			return .failure(NetworkResponseError.failed)
+		}
+	}
+	
 	static func requests(_ router: URLRequestConvertible, completion: @escaping AlamofireJSONCompletionHandler) {
 		Alamofire.request(router).responseJSON { response in
 			switch response.result {
@@ -72,24 +90,4 @@ class NetworkManager {
 			}
 		}
 	}
-	
-	private static func handleNetworkResponseValidation(_ dataReponse: DataResponse<Any>?) -> ResultStatusCode<NetworkResponseError> {
-		guard let uwrDataResponse = dataReponse, let uwrResponse = uwrDataResponse.response else {
-			return .failure(NetworkResponseError.failed)
-		}
-		
-		switch uwrResponse.statusCode {
-			case 200...299:
-				return .success
-			case 401...500:
-				return .failure(NetworkResponseError.authenticationError)
-			case 501...599:
-				return .failure(NetworkResponseError.badRequest)
-			case 600:
-				return .failure(NetworkResponseError.outdated)
-			default:
-				return .failure(NetworkResponseError.failed)
-		}
-	}
-	
 }
