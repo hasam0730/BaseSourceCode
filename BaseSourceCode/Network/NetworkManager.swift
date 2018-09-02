@@ -9,6 +9,8 @@
 import Foundation
 import Alamofire
 
+typealias AlamofireJSONCompletionHandler = (ResultRequest<Any>)->()
+
 enum NetworkResponseError: Error {
 	case authenticationError // = "you need to be authenticated first"
 	case badRequest // = "Bad request"
@@ -42,34 +44,36 @@ extension NetworkResponseError: LocalizedError {
 	}
 }
 
-enum Result<NetworkResponseError> {
+fileprivate enum ResultStatusCode<NetworkResponseError> {
 	case success
 	case failure(NetworkResponseError)
 }
 
-enum ResultCaiGiVay<Value> {
-	case success
+enum ResultRequest<T> {
+	case success(T)
 	case failure(NetworkResponseError)
 }
 
 class NetworkManager {
 	
-	static func request(_ router: URLRequestConvertible, completion: @escaping (_ data: DataResponse<Any>?, _ error: NetworkResponseError?)->()) {
+	static func requests(_ router: URLRequestConvertible, completion: @escaping AlamofireJSONCompletionHandler) {
 		Alamofire.request(router).responseJSON { response in
 			switch response.result {
-				case .success(_):
-					let rs = self.handleNetworkResponseValidation(response)
-					switch rs {
-					case .success: completion(response, nil)
-					case .failure(let error): completion(nil, error)
-					}
-				case .failure(_):
-					completion(nil, NetworkResponseError.timeout)
+			case .success(_):
+				let rs = self.handleNetworkResponseValidation(response)
+				switch rs {
+				case .success:
+					completion(.success(response))
+				case .failure(let error):
+					completion(.failure(error))
+				}
+			case .failure(_):
+				completion(.failure(NetworkResponseError.timeout))
 			}
 		}
 	}
 	
-	private static func handleNetworkResponseValidation(_ dataReponse: DataResponse<Any>?) -> Result<NetworkResponseError> {
+	private static func handleNetworkResponseValidation(_ dataReponse: DataResponse<Any>?) -> ResultStatusCode<NetworkResponseError> {
 		guard let uwrDataResponse = dataReponse, let uwrResponse = uwrDataResponse.response else {
 			return .failure(NetworkResponseError.failed)
 		}

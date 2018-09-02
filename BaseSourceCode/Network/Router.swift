@@ -86,9 +86,7 @@ enum Router: URLRequestConvertible {
 				break
 			case .history_order(let params, _):
 				urlRequest = try URLEncoding.queryString.encode(urlRequest, with: params)
-			
 		}
-		
 		return urlRequest
 	}
 }
