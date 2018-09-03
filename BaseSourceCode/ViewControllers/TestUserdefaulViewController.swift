@@ -22,7 +22,7 @@ class TestUserdefaulViewController: UIViewController, Alertable {
 	}
 	
 	@IBAction func clearAllAction(_ sender: UIButton) {
-		var appDomain: String? = Bundle.main.bundleIdentifier
+		let appDomain: String? = Bundle.main.bundleIdentifier
 		UserDefaults.standard.removePersistentDomain(forName: appDomain!)
 	}
 	

@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-class LoadMoreViewController: UIViewController {
+class LoadMoreViewController: UIViewController, Alertable {
 
 	@IBOutlet weak var tableView: LoadMoreTableView!
 	
@@ -27,7 +27,7 @@ class LoadMoreViewController: UIViewController {
 															let smt = value as! DataResponse<Any>
 															let caigifvay = (smt.result.value as! [String: Any])["data"] as! [String: Any]
 															let cai = (caigifvay["data"] as! [[String: Any]])
-															cai.map({
+															_ = cai.map({
 																let order = OrderEntity(dicData: $0)
 																self.ordersList.append(order)
 															})
@@ -64,11 +64,10 @@ extension LoadMoreViewController: UITableViewDelegate {
 		let  height = scrollView.frame.size.height
 		let contentYoffset = scrollView.contentOffset.y
 		let distanceFromBottom = scrollView.contentSize.height - contentYoffset
-		
 		if distanceFromBottom < height {
 			pendingRequestWorkItem?.cancel()
 			let task = DispatchWorkItem { [weak self] in
-				NetworkManager.requests(Router.history_order(parameters: ["limit": self?.limit, "page": self!.page+1],
+				NetworkManager.requests(Router.history_order(parameters: ["limit": self!.limit, "page": self!.page+1],
 															 headers: ["Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjUzLCJpc3MiOiJodHRwOi8vcGh1Y2xvY3Roby5ob2FudnVzb2x1dGlvbnMuY29tLnZuL2FwaS91c2Vycy9sb2dpbiIsImlhdCI6MTUzNTc5NDIzOSwiZXhwIjoxNTYxNzE0MjM5LCJuYmYiOjE1MzU3OTQyMzksImp0aSI6Imh1OU05RGJhZ2ZhQm9tMDQiLCJpZCI6bnVsbH0.QF7LetAO7ZsuxSySbGLMd-YpTk1lPElW327XO7cpCTw"])) { rs in
 																switch rs {
 																case .success(let value):
@@ -91,10 +90,10 @@ extension LoadMoreViewController: UITableViewDelegate {
 																	print(error.localizedDescription)
 																}
 				}
+				
 			}
 			pendingRequestWorkItem = task
 			DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(timeDelay), execute: task)
-			
 		}
 	}
 }

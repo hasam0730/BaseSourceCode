@@ -1,0 +1,11 @@
+framework module PullRefresh_LoadMore {
+  umbrella header "PullRefresh_LoadMore.h"
+
+  export *
+  module * { export * }
+}
+
+module PullRefresh_LoadMore.Swift {
+    header "PullRefresh_LoadMore-Swift.h"
+    requires objc
+}

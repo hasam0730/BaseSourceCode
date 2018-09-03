@@ -80,7 +80,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="image" translatesAutoresizingMaskIntoConstraints="NO" id="IW5-q0-6Mv">
-                                <rect key="frame" x="28" y="20" width="72" height="67"/>
+                                <rect key="frame" x="28" y="20" width="33" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VWJ-bX-SkQ">
@@ -160,12 +160,17 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cuI-4c-9i8">
-                                <rect key="frame" x="161" y="38" width="69" height="30"/>
+                                <rect key="frame" x="88" y="26" width="69" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="LoadMore"/>
                                 <connections>
                                     <segue destination="enY-rf-l5W" kind="push" id="NPh-Ia-7ze"/>
                                 </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jvn-8m-IId">
+                                <rect key="frame" x="193" y="26" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.59348337669999995" green="0.72876857679999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -231,11 +236,27 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7rP-Ym-ovf">
-                                <rect key="frame" x="137" y="258" width="46" height="30"/>
+                                <rect key="frame" x="134" y="258" width="53" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="request"/>
                                 <connections>
                                     <action selector="networkAction:" destination="pL3-S6-MWf" eventType="touchUpInside" id="0Pq-nD-CSt"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hI7-Jj-vth">
+                                <rect key="frame" x="126" y="320" width="68" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="cancell all"/>
+                                <connections>
+                                    <action selector="cancelAll:" destination="pL3-S6-MWf" eventType="touchUpInside" id="gSR-PP-9y6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GeJ-o9-dFw">
+                                <rect key="frame" x="123" y="374" width="75" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="cancel one"/>
+                                <connections>
+                                    <action selector="cancelOne:" destination="pL3-S6-MWf" eventType="touchUpInside" id="uIv-qY-l8Z"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -246,7 +267,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fhb-Yu-zes" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-279" y="12"/>
+            <point key="canvasLocation" x="-279.375" y="11.619718309859156"/>
         </scene>
     </scenes>
     <resources>

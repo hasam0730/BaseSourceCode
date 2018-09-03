@@ -14,15 +14,17 @@ fileprivate let phuoclocthoURLString = "http://phucloctho.hoanvusolutions.com.vn
 fileprivate let timeout = 5.0
 
 enum Router: URLRequestConvertible {
+	
 	case login(parameters: Parameters)
 	case list_level(id: Int)
 	case history_order(parameters: Parameters, headers: HTTPHeaders)
+	case transport(params: Parameters, headers: HTTPHeaders)
 	
 	var environmentBaseURL: String {
 		switch self {
 		case .login(_), .list_level(_):
 			return baseURLString
-		case .history_order(_, _):
+		case .history_order(_, _), .transport(_, _):
 			return phuoclocthoURLString
 		}
 	}
@@ -34,7 +36,7 @@ enum Router: URLRequestConvertible {
 	
 	var method: HTTPMethod {
 		switch self {
-		case .login(_):
+		case .login(_), .transport(_, _):
 			return .post
 		case .list_level(_), .history_order(_):
 			return .get
@@ -49,6 +51,8 @@ enum Router: URLRequestConvertible {
 			return "/course/list-level/\(id)"
 		case .history_order(_):
 			return "/transport/history-order"
+		case .transport(_, _):
+			return "/transport/order"
 		}
 	}
 	
@@ -56,7 +60,7 @@ enum Router: URLRequestConvertible {
 		switch self {
 		case .login(_), .list_level(_):
 			return nil
-		case .history_order(_, let headers):
+		case .history_order(_, let headers), .transport(_, let headers):
 			return headers
 		}
 	}
@@ -65,7 +69,7 @@ enum Router: URLRequestConvertible {
 		switch self {
 		case .login(_):
 			return nil
-		case .list_level(_), .history_order(_):
+		case .list_level(_), .history_order(_), .transport(_, _):
 			return nil
 		}
 	}
@@ -80,7 +84,7 @@ enum Router: URLRequestConvertible {
 		urlRequest.allHTTPHeaderFields = header
 
 		switch self {
-			case .login(let parameters):
+			case .login(let parameters), .transport(let parameters, _):
 				urlRequest = try URLEncoding.default.encode(urlRequest, with: parameters)
 			case .list_level(_):
 				break
