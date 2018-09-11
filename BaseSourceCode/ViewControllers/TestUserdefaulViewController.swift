@@ -11,19 +11,15 @@ import UIKit
 class TestUserdefaulViewController: UIViewController, Alertable {
 
 	@IBAction func showAction(_ sender: UIButton) {
-		let defaults = UserDefaults.standard
-		let age = defaults.integer(forKey: "Age")
-		showALert("\(age)")
+		showALert(UserHolder.name)
 	}
 	
 	@IBAction func setAction(_ sender: UIButton) {
-		let defaults = UserDefaults.standard
-		defaults.set(25, forKey: "Age")
+		UserHolder.name = "hieu"
 	}
 	
 	@IBAction func clearAllAction(_ sender: UIButton) {
-		let appDomain: String? = Bundle.main.bundleIdentifier
-		UserDefaults.standard.removePersistentDomain(forName: appDomain!)
+		UserHolder.deleteAllData()
 	}
 	
 	override func viewDidLoad() {

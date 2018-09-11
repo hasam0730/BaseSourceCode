@@ -65,6 +65,10 @@ class NetworkManager {
 		case uploadTask
 	}
 	
+    class var isConnectedToInternet:Bool {
+        return NetworkReachabilityManager()!.isReachable
+    }
+    
 	static func requests(_ router: URLRequestConvertible, completion: @escaping AlamofireJSONCompletionHandler) {
 		
 		Alamofire.request(router).responseJSON { response in
@@ -144,30 +148,8 @@ class NetworkManager {
 			
 			
 		})
-		
-		
-		
-		
-//		request(router).responseJSON { response in
-//			switch response.result {
-//			case .success(_):
-//				let rs = self.handleStatusCodeValidation(response)
-//				switch rs {
-//				case .success:
-//					completion(.success(response))
-//				case .failure(let error): // connect success to server but fail by server
-//					completion(.failure(error))
-//				}
-//			case .failure(let error): // fail because of time out or canceled request
-//				// print("🚁\(error.localizedDescription): \(error.code)")
-//				switch error.code {
-//				case -999	: completion(.failure(NetworkResponseError.canceled))
-//				case -1001	: completion(.failure(NetworkResponseError.timeout))
-//				default		: completion(.failure(NetworkResponseError.failed))
-//				}
-//			}
-//		}
 	}
+
 }
 
 private extension NetworkManager {

@@ -14,6 +14,24 @@ class TheFirstViewController: BaseSourceCode.ViewController, Alertable {
     @IBOutlet weak var tfMenu: MenuTextField!
     let user = UserLogin(username: nil, email: "hasam@gmail.com")
     var locationsList: [LocationEntity]?
+    let str = """
+        <HEAD>
+        <TITLE>Your Title Here</TITLE>
+        </HEAD>
+        <BODY BGCOLOR="FFFFFF">
+        <HR>
+        <a href="http://somegreatsite.com">Link Name</a>
+            is a link to another nifty site
+        <H1>This is a Header</H1>
+        <H2>This is a Medium Header</H2>
+        Send me mail at <a href="mailto:support@yourcompany.com">
+        support@yourcompany.com</a>.
+        <P> This is a new paragraph!
+        <P> <B>This is a new paragraph!</B>
+        <BR> <B><I>This is a new sentence without a paragraph break, in bold italics.</I></B>
+        <HR>
+        </BODY>
+        """
     
     @IBAction func didSelectBtn(_ sender: UIButton) {
 		do {
@@ -92,6 +110,22 @@ class TheFirstViewController: BaseSourceCode.ViewController, Alertable {
 		}
 		
 	}
+    
+    @IBAction func didTapShowPopUpBtn(_ sender: UIButton) {
+//        let vc = TicketPolicy(nibName: "TicketPolicy", bundle: nil)
+//        let transitioner = ModalTransitioningDelegate()
+//        vc.modalPresentationStyle = .custom
+//        vc.transitioningDelegate = transitioner
+//        vc.smt = self.str.html2String
+//        UIWindow.topViewController()?.present(vc, animated: true)
+        
+        if NetworkManager.isConnectedToInternet {
+            showALert("connected")
+        } else {
+            showALert("disconnected")
+        }
+    }
+    
     
     func requestData() {
         if locationsList != nil {

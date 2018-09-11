@@ -48,10 +48,6 @@ class NetworkViewController: UIViewController {
 														}
 		}
 		
-		NetworkManager.upload(Router.login(parameters: ["account": #imageLiteral(resourceName: "image"),
-														"password": "123456"])) { (rs) in
-														
-		}
 	}
 	
 	
