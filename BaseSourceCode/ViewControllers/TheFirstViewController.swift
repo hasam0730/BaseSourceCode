@@ -12,6 +12,8 @@ class TheFirstViewController: BaseSourceCode.ViewController, Alertable {
 //    https://www.mockable.io/a/#/space/demo0368329/rest/UAAAAAAAA
 	@IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var tfMenu: MenuTextField!
+    @IBOutlet weak var lblAgreementAndPolicy: UILabel!
+    
     let user = UserLogin(username: nil, email: "hasam@gmail.com")
     var locationsList: [LocationEntity]?
     let str = """
@@ -98,6 +100,9 @@ class TheFirstViewController: BaseSourceCode.ViewController, Alertable {
 		
 		
 		//----------------
+        let attributeText = NSMutableAttributedString(string: "Bạn đã đồng ý ", attributes: nil)
+        attributeText.append(NSAttributedString(string: "đồng ý", attributes: [NSAttributedStringKey.link: "", NSAttributedStringKey.foregroundColor: UIColor.red]))
+        lblAgreementAndPolicy.attributedText = attributeText
 	}
 	
 	func checkValidate() {
