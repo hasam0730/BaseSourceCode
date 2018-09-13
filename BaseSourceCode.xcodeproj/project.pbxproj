@@ -59,6 +59,7 @@
 		9A801A7B2147C89400451C8E /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A801A7A2147C89400451C8E /* Date+Extension.swift */; };
 		9A801A7D2147CA8000451C8E /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A801A7C2147CA8000451C8E /* CameraController.swift */; };
 		9A801A7F2147D4A200451C8E /* UserDefaultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A801A7E2147D4A200451C8E /* UserDefaultController.swift */; };
+		9A8EE735214A1C0E0039BBCB /* TappableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8EE734214A1C0E0039BBCB /* TappableLabel.swift */; };
 		E699349F92AD6D5D68AA6120 /* Pods_BaseSourceCode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 557844F1077FE4B4C186C198 /* Pods_BaseSourceCode.framework */; };
 		F25F5DCE69330BA42686326B /* Pods_BaseSourceCodeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B416BF83A1F45123148AC405 /* Pods_BaseSourceCodeUITests.framework */; };
 /* End PBXBuildFile section */
@@ -144,6 +145,7 @@
 		9A801A7A2147C89400451C8E /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		9A801A7C2147CA8000451C8E /* CameraController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
 		9A801A7E2147D4A200451C8E /* UserDefaultController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultController.swift; sourceTree = "<group>"; };
+		9A8EE734214A1C0E0039BBCB /* TappableLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TappableLabel.swift; sourceTree = "<group>"; };
 		B416BF83A1F45123148AC405 /* Pods_BaseSourceCodeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BaseSourceCodeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC8BA1C6FE300CF41E2AAEAC /* Pods-BaseSourceCodeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaseSourceCodeUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BaseSourceCodeUITests/Pods-BaseSourceCodeUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CCB45148227E3B0E9D4E73BA /* Pods_BaseSourceCodeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BaseSourceCodeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -337,6 +339,7 @@
 				8F2609F22131477D0003F507 /* MenuTextField.swift */,
 				8F2609F4213148C90003F507 /* IconTextField.swift */,
 				8B724B61213C3EC300D038D4 /* LoadMoreTableView.swift */,
+				9A8EE734214A1C0E0039BBCB /* TappableLabel.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -639,6 +642,7 @@
 				8B1E8AF02132396C00C883A5 /* BounceAnimationController.swift in Sources */,
 				8B129F7521305D640008FF02 /* ValidateHandler.swift in Sources */,
 				8B030CD82120456B00E0A1AF /* ViewController.swift in Sources */,
+				9A8EE735214A1C0E0039BBCB /* TappableLabel.swift in Sources */,
 				8B129F7A213070B50008FF02 /* Optional+Extension.swift in Sources */,
 				8B129F782130663F0008FF02 /* UIDevice.swift in Sources */,
 				8B1E8AEE2132396C00C883A5 /* FadeOutAnimationController.swift in Sources */,

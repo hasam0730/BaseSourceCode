@@ -13,6 +13,7 @@ class TheFirstViewController: BaseSourceCode.ViewController, Alertable {
 	@IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var tfMenu: MenuTextField!
     @IBOutlet weak var lblAgreementAndPolicy: UILabel!
+    @IBOutlet weak var textView: UITextView!
     
     let user = UserLogin(username: nil, email: "hasam@gmail.com")
     var locationsList: [LocationEntity]?
@@ -100,9 +101,41 @@ class TheFirstViewController: BaseSourceCode.ViewController, Alertable {
 		
 		
 		//----------------
-        let attributeText = NSMutableAttributedString(string: "Bạn đã đồng ý ", attributes: nil)
-        attributeText.append(NSAttributedString(string: "đồng ý", attributes: [NSAttributedStringKey.link: "", NSAttributedStringKey.foregroundColor: UIColor.red]))
-        lblAgreementAndPolicy.attributedText = attributeText
+//        let attributeText = NSMutableAttributedString(string: "Bạn đã đồng ý ", attributes: nil)
+//        attributeText.append(NSAttributedString(string: "đồng ý", attributes: [NSAttributedStringKey.link: "", NSAttributedStringKey.foregroundColor: UIColor.red]))
+//        lblAgreementAndPolicy.attributedText = attributeText
+        
+//        textView.editable = false
+//        textView.dataDetectorTypes = .link
+        
+        
+        //
+        let label = TappableLabel()
+        label.frame = CGRect(x: 150, y: 200, width: 200, height: 20)
+        label.displayableContentText = "Hello World! stackoverflow"
+        label.textColor = .black
+        label.isUserInteractionEnabled = true
+        label.detectableText = "World!"
+        
+        view.addSubview(label)
+        
+        let range = (label.displayableContentText! as NSString).range(of: "World", options: .caseInsensitive)
+        label.didDetectTapOnText = { (value1, value2) in
+            print("\(value1) - \(value2)\n")
+            print("😇\(range.contains(value2.location))")
+        }
+        label.performPreparation()
+        
+        //
+        
+        myTextView.linkTextAttributes = [NSAttributedStringKey.foregroundColor.rawValue: UIColor.red]
+        let attributedString = NSMutableAttributedString(string: "Tôi đã đọc và đồng ý với các Quy định bảo mật và Thoả thuận sử dụng")
+        attributedString.addAttributes([.link: "a", .font: AppFont.HelveticaNeue.font(ofSize: 14, weight: .Regular)], range: NSRange(location: 28, length: 17))
+        attributedString.addAttributes([.link: "b", .font: AppFont.HelveticaNeue.font(ofSize: 14, weight: .Regular)], range: NSRange(location: 48, length: 19))
+        attributedString.addAttributes([.font: AppFont.HelveticaNeue.font(ofSize: 14, weight: .Regular)], range: NSRange(location: 0, length: 28))
+        attributedString.addAttributes([.font: AppFont.HelveticaNeue.font(ofSize: 14, weight: .Regular)], range: NSRange(location: 46, length: 2))
+        myTextView.attributedText = attributedString
+        myTextView.delegate = self
 	}
 	
 	func checkValidate() {
@@ -164,5 +197,19 @@ class TheFirstViewController: BaseSourceCode.ViewController, Alertable {
             }
         }
         task.resume()
+    }
+}
+
+extension RegisterViewController: UITextViewDelegate {
+    
+    func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
+        if URL.absoluteString == "a" {
+            print("GOOD")
+        }
+        
+        if URL.absoluteString == "b" {
+            print("GOOD 111")
+        }
+        return false
     }
 }
