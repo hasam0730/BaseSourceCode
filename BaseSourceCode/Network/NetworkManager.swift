@@ -144,9 +144,6 @@ class NetworkManager {
 		   method: HTTPMethod(rawValue: request.httpMethod!)!,
 		   headers: request.allHTTPHeaderFields,
 		   encodingCompletion: { (result) in
-		
-			
-			
 		})
 	}
 

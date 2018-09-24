@@ -128,14 +128,14 @@ class TheFirstViewController: BaseSourceCode.ViewController, Alertable {
         
         //
         
-        myTextView.linkTextAttributes = [NSAttributedStringKey.foregroundColor.rawValue: UIColor.red]
-        let attributedString = NSMutableAttributedString(string: "Tôi đã đọc và đồng ý với các Quy định bảo mật và Thoả thuận sử dụng")
-        attributedString.addAttributes([.link: "a", .font: AppFont.HelveticaNeue.font(ofSize: 14, weight: .Regular)], range: NSRange(location: 28, length: 17))
-        attributedString.addAttributes([.link: "b", .font: AppFont.HelveticaNeue.font(ofSize: 14, weight: .Regular)], range: NSRange(location: 48, length: 19))
-        attributedString.addAttributes([.font: AppFont.HelveticaNeue.font(ofSize: 14, weight: .Regular)], range: NSRange(location: 0, length: 28))
-        attributedString.addAttributes([.font: AppFont.HelveticaNeue.font(ofSize: 14, weight: .Regular)], range: NSRange(location: 46, length: 2))
-        myTextView.attributedText = attributedString
-        myTextView.delegate = self
+//        myTextView.linkTextAttributes = [NSAttributedStringKey.foregroundColor.rawValue: UIColor.red]
+//        let attributedString = NSMutableAttributedString(string: "Tôi đã đọc và đồng ý với các Quy định bảo mật và Thoả thuận sử dụng")
+//        attributedString.addAttributes([.link: "a", .font: AppFont.HelveticaNeue.font(ofSize: 14, weight: .Regular)], range: NSRange(location: 28, length: 17))
+//        attributedString.addAttributes([.link: "b", .font: AppFont.HelveticaNeue.font(ofSize: 14, weight: .Regular)], range: NSRange(location: 48, length: 19))
+//        attributedString.addAttributes([.font: AppFont.HelveticaNeue.font(ofSize: 14, weight: .Regular)], range: NSRange(location: 0, length: 28))
+//        attributedString.addAttributes([.font: AppFont.HelveticaNeue.font(ofSize: 14, weight: .Regular)], range: NSRange(location: 46, length: 2))
+//        myTextView.attributedText = attributedString
+//        myTextView.delegate = self
 	}
 	
 	func checkValidate() {
@@ -200,16 +200,16 @@ class TheFirstViewController: BaseSourceCode.ViewController, Alertable {
     }
 }
 
-extension RegisterViewController: UITextViewDelegate {
-    
-    func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
-        if URL.absoluteString == "a" {
-            print("GOOD")
-        }
-        
-        if URL.absoluteString == "b" {
-            print("GOOD 111")
-        }
-        return false
-    }
-}
+//extension RegisterViewController: UITextViewDelegate {
+//
+//    func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
+//        if URL.absoluteString == "a" {
+//            print("GOOD")
+//        }
+//
+//        if URL.absoluteString == "b" {
+//            print("GOOD 111")
+//        }
+//        return false
+//    }
+//}
