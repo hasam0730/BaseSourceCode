@@ -91,29 +91,17 @@ class TheFirstViewController: BaseSourceCode.ViewController, Alertable {
         print(formattedString.defaultIfNil)
         
         //--------------
-//        tfMenu.callback = {
-//            self.requestData()
-//        }
 		
 		tfMenu.callback = {
 			self.requestData()
 		}
 		
-		
-		//----------------
-//        let attributeText = NSMutableAttributedString(string: "Bạn đã đồng ý ", attributes: nil)
-//        attributeText.append(NSAttributedString(string: "đồng ý", attributes: [NSAttributedStringKey.link: "", NSAttributedStringKey.foregroundColor: UIColor.red]))
-//        lblAgreementAndPolicy.attributedText = attributeText
-        
-//        textView.editable = false
-//        textView.dataDetectorTypes = .link
-        
-        
         //
         let label = TappableLabel()
-        label.frame = CGRect(x: 150, y: 200, width: 200, height: 20)
+        label.frame = CGRect(x: 150, y: 300, width: 200, height: 20)
         label.displayableContentText = "Hello World! stackoverflow"
         label.textColor = .black
+		label.backgroundColor = UIColor.green
         label.isUserInteractionEnabled = true
         label.detectableText = "World!"
         
@@ -128,14 +116,37 @@ class TheFirstViewController: BaseSourceCode.ViewController, Alertable {
         
         //
         
-        myTextView.linkTextAttributes = [NSAttributedStringKey.foregroundColor.rawValue: UIColor.red]
-        let attributedString = NSMutableAttributedString(string: "Tôi đã đọc và đồng ý với các Quy định bảo mật và Thoả thuận sử dụng")
-        attributedString.addAttributes([.link: "a", .font: AppFont.HelveticaNeue.font(ofSize: 14, weight: .Regular)], range: NSRange(location: 28, length: 17))
-        attributedString.addAttributes([.link: "b", .font: AppFont.HelveticaNeue.font(ofSize: 14, weight: .Regular)], range: NSRange(location: 48, length: 19))
-        attributedString.addAttributes([.font: AppFont.HelveticaNeue.font(ofSize: 14, weight: .Regular)], range: NSRange(location: 0, length: 28))
-        attributedString.addAttributes([.font: AppFont.HelveticaNeue.font(ofSize: 14, weight: .Regular)], range: NSRange(location: 46, length: 2))
-        myTextView.attributedText = attributedString
-        myTextView.delegate = self
+//         textView.linkTextAttributes = [NSAttributedStringKey.foregroundColor.rawValue: UIColor.red]
+//        let attributedString = NSMutableAttributedString(string: "Tôi đã đọc và đồng ý với các Quy định bảo mật và Thoả thuận sử dụng")
+//		attributedString.addAttributes([.link: "a", .font: UIFont.boldSystemFont(ofSize: 15), .foregroundColor: UIColor.red], range: NSRange(location: 28, length: 17))
+//        attributedString.addAttributes([.link: "b", .font: UIFont.boldSystemFont(ofSize: 15), .foregroundColor: UIColor.red], range: NSRange(location: 48, length: 19))
+//        attributedString.addAttributes([.font: UIFont.boldSystemFont(ofSize: 20), .foregroundColor: UIColor.red], range: NSRange(location: 0, length: 28))
+//        attributedString.addAttributes([.font: UIFont.boldSystemFont(ofSize: 20), .foregroundColor: UIColor.red], range: NSRange(location: 46, length: 2))
+//        textView.attributedText = attributedString
+//        textView.delegate = self
+		
+		textView.text = "Tôi đã đọc và Quy định bảo mật"
+		textView.textColor = .black
+		let policyString = "Tôi đã đọc và"
+		let termString = "Quy định bảo mật"
+		let string = policyString + termString
+		let attributedString = NSMutableAttributedString(string: string)
+		let policyIndex = string.distance(from: string.startIndex, to:(string.range(of: policyString)!.lowerBound))
+		let termIndex = string.distance(from: string.startIndex, to:(string.range(of: termString)!.lowerBound))
+		attributedString.addAttribute(.link, value: "policy", range: NSRange(location: policyIndex, length: policyString.count))
+		attributedString.addAttribute(.link, value: "term", range: NSRange(location: termIndex, length: termString.count))
+		
+		attributedString.addAttribute(.underlineStyle, value: NSUnderlineStyle.styleSingle.rawValue, range: NSRange(location: policyIndex, length: policyString.count))
+		attributedString.addAttribute(.underlineStyle, value: NSUnderlineStyle.styleSingle.rawValue, range: NSRange(location: termIndex, length: termString.count))
+		
+		attributedString.addAttribute(.font, value: UIFont.boldSystemFont(ofSize: 12), range: NSRange(location: 0, length: string.utf16.count))
+		attributedString.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor.white, range: NSRange(location: 0, length: string.utf16.count))
+		
+		textView.linkTextAttributes = [NSAttributedStringKey.foregroundColor.rawValue: UIColor.white]
+		textView.attributedText = attributedString
+		textView.isEditable = false
+		textView.isSelectable = true
+		textView.delegate = self
 	}
 	
 	func checkValidate() {
@@ -150,18 +161,12 @@ class TheFirstViewController: BaseSourceCode.ViewController, Alertable {
 	}
     
     @IBAction func didTapShowPopUpBtn(_ sender: UIButton) {
-//        let vc = TicketPolicy(nibName: "TicketPolicy", bundle: nil)
-//        let transitioner = ModalTransitioningDelegate()
-//        vc.modalPresentationStyle = .custom
-//        vc.transitioningDelegate = transitioner
-//        vc.smt = self.str.html2String
-//        UIWindow.topViewController()?.present(vc, animated: true)
-        
-        if NetworkManager.isConnectedToInternet {
-            showALert("connected")
-        } else {
-            showALert("disconnected")
-        }
+        let vc = TicketPolicy(nibName: "TicketPolicy", bundle: nil)
+        let transitioner = ModalTransitioningDelegate()
+        vc.modalPresentationStyle = .custom
+        vc.transitioningDelegate = transitioner
+        vc.smt = self.str.html2String
+        UIWindow.topViewController()?.present(vc, animated: true)
     }
     
     
@@ -200,16 +205,16 @@ class TheFirstViewController: BaseSourceCode.ViewController, Alertable {
     }
 }
 
-extension RegisterViewController: UITextViewDelegate {
-    
+extension TheFirstViewController: UITextViewDelegate {
+	
     func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
         if URL.absoluteString == "a" {
             print("GOOD")
         }
-        
+		
         if URL.absoluteString == "b" {
             print("GOOD 111")
         }
-        return false
+        return true
     }
 }

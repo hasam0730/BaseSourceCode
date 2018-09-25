@@ -38,26 +38,26 @@ final class TappableLabel: UILabel {
         
         guard let searchableString = self.displayableContentText else { return }
         let attributtedString = NSMutableAttributedString(string: searchableString, attributes: mainTextAttributes)
-        
+		
         if let detectionText = detectableText {
-            
+			
             var attributesForDetection:[NSAttributedStringKey : AnyObject] = [
                 NSAttributedStringKey(rawValue: Const.DetectableAttributeName) : "UserAction" as AnyObject
             ]
             tappableTextAttributes.forEach {
                 attributesForDetection.updateValue($1, forKey: $0)
             }
-            
+			
             for (_ ,range) in searchableString.rangesOfPattern(patternString: detectionText).enumerated() {
                 let tappableRange = searchableString.nsRange(from: range)
                 attributtedString.addAttributes(attributesForDetection, range: tappableRange!)
             }
-            
+			
             if self.tapGesture == nil {
                 setupTouch()
             }
         }
-        
+		
         text = nil
         attributedText = attributtedString
     }
@@ -105,7 +105,7 @@ final class TappableLabel: UILabel {
         
         if characterIndex < textStorage.length {
             let tapRange = NSRange(location: characterIndex, length: 1)
-            let substring = (self.attributedText?.string as? NSString)?.substring(with: tapRange)
+			let substring = (self.attributedText?.string as NSString?)?.substring(with: tapRange)
             
             let attributeName = Const.DetectableAttributeName
             let attributeValue = self.attributedText?.attribute(NSAttributedStringKey(rawValue: attributeName), at: characterIndex, effectiveRange: nil) as? String

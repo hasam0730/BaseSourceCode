@@ -57,50 +57,45 @@ extension String {
     var html2String: String {
         return html2AttributedString?.string ?? ""
     }
-    
-    
-    extension String {
-        // MARK: - String+RangeDetection
-        
-        func rangesOfPattern(patternString: String) -> [Range<Index>] {
-            var ranges : [Range<Index>] = []
-            
-            let patternCharactersCount = patternString.count
-            let strCharactersCount = self.count
-            if  strCharactersCount >= patternCharactersCount {
-                
-                for i in 0...(strCharactersCount - patternCharactersCount) {
-                    let from:Index = self.index(self.startIndex, offsetBy:i)
-                    if let to:Index = self.index(from, offsetBy:patternCharactersCount, limitedBy: self.endIndex) {
-                        
-                        if patternString == self[from..<to] {
-                            ranges.append(from..<to)
-                        }
-                    }
-                }
-            }
-            
-            return ranges
-        }
-        
-        func nsRange(from range: Range<String.Index>) -> NSRange? {
-            let utf16view = self.utf16
-            if let from = range.lowerBound.samePosition(in: utf16view),
-                let to = range.upperBound.samePosition(in: utf16view) {
-                return NSMakeRange(utf16view.distance(from: utf16view.startIndex, to: from),
-                                   utf16view.distance(from: from, to: to))
-            }
-            return nil
-        }
-        
-        func range(from nsRange: NSRange) -> Range<String.Index>? {
-            guard
-                let from16 = utf16.index(utf16.startIndex, offsetBy: nsRange.location, limitedBy: utf16.endIndex),
-                let to16 = utf16.index(from16, offsetBy: nsRange.length, limitedBy: utf16.endIndex),
-                let from = String.Index(from16, within: self),
-                let to = String.Index(to16, within: self)
-                else { return nil }
-            return from ..< to
-        }
-    }
+	
+	func rangesOfPattern(patternString: String) -> [Range<Index>] {
+		var ranges : [Range<Index>] = []
+		
+		let patternCharactersCount = patternString.count
+		let strCharactersCount = self.count
+		if  strCharactersCount >= patternCharactersCount {
+			
+			for i in 0...(strCharactersCount - patternCharactersCount) {
+				let from:Index = self.index(self.startIndex, offsetBy:i)
+				if let to:Index = self.index(from, offsetBy:patternCharactersCount, limitedBy: self.endIndex) {
+					
+					if patternString == self[from..<to] {
+						ranges.append(from..<to)
+					}
+				}
+			}
+		}
+		
+		return ranges
+	}
+
+	func nsRange(from range: Range<String.Index>) -> NSRange? {
+		let utf16view = self.utf16
+		if let from = range.lowerBound.samePosition(in: utf16view),
+			let to = range.upperBound.samePosition(in: utf16view) {
+			return NSMakeRange(utf16view.distance(from: utf16view.startIndex, to: from),
+							   utf16view.distance(from: from, to: to))
+		}
+		return nil
+	}
+
+	func range(from nsRange: NSRange) -> Range<String.Index>? {
+		guard
+			let from16 = utf16.index(utf16.startIndex, offsetBy: nsRange.location, limitedBy: utf16.endIndex),
+			let to16 = utf16.index(from16, offsetBy: nsRange.length, limitedBy: utf16.endIndex),
+			let from = String.Index(from16, within: self),
+			let to = String.Index(to16, within: self)
+			else { return nil }
+		return from ..< to
+	}
 }
