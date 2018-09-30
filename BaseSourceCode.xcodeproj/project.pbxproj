@@ -34,6 +34,7 @@
 		8B724B59213BA7D100D038D4 /* NetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B724B58213BA7D100D038D4 /* NetworkHandler.swift */; };
 		8B724B5B213BB51E00D038D4 /* Error+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B724B5A213BB51E00D038D4 /* Error+Extension.swift */; };
 		8B724B62213C3EC300D038D4 /* LoadMoreTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B724B61213C3EC300D038D4 /* LoadMoreTableView.swift */; };
+		8B79A6692161390100371BA9 /* ResponsePostEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B79A6682161390100371BA9 /* ResponsePostEntity.swift */; };
 		8B80E75F213A90510002F599 /* TestUserdefaulViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B80E75E213A90510002F599 /* TestUserdefaulViewController.swift */; };
 		8B84346A215FD91500B0238B /* PostEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B843469215FD91500B0238B /* PostEntity.swift */; };
 		8B84346C216087C000B0238B /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B84346B216087C000B0238B /* Int+Extension.swift */; };
@@ -124,6 +125,7 @@
 		8B724B58213BA7D100D038D4 /* NetworkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHandler.swift; sourceTree = "<group>"; };
 		8B724B5A213BB51E00D038D4 /* Error+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+Extension.swift"; sourceTree = "<group>"; };
 		8B724B61213C3EC300D038D4 /* LoadMoreTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadMoreTableView.swift; sourceTree = "<group>"; };
+		8B79A6682161390100371BA9 /* ResponsePostEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponsePostEntity.swift; sourceTree = "<group>"; };
 		8B80E75E213A90510002F599 /* TestUserdefaulViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUserdefaulViewController.swift; sourceTree = "<group>"; };
 		8B843469215FD91500B0238B /* PostEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostEntity.swift; sourceTree = "<group>"; };
 		8B84346B216087C000B0238B /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
@@ -376,6 +378,7 @@
 				8BB09328213A6CE800749A26 /* UserLogin.swift */,
 				8BC076ED215BEB25008834FE /* ProvinceEntity.swift */,
 				8B843469215FD91500B0238B /* PostEntity.swift */,
+				8B79A6682161390100371BA9 /* ResponsePostEntity.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -640,6 +643,7 @@
 				8B724B62213C3EC300D038D4 /* LoadMoreTableView.swift in Sources */,
 				8B724B59213BA7D100D038D4 /* NetworkHandler.swift in Sources */,
 				8B1E8AEA2132394700C883A5 /* GradientView.swift in Sources */,
+				8B79A6692161390100371BA9 /* ResponsePostEntity.swift in Sources */,
 				8F2609FC21315B2D0003F507 /* UIWindow+Extension.swift in Sources */,
 				8BC076E8215BDB6F008834FE /* NetworkConnectionHandler.swift in Sources */,
 				8B129F6E213056E70008FF02 /* UIImageView+Extension.swift in Sources */,

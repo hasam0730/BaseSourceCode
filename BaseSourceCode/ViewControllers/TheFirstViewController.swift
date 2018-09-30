@@ -158,7 +158,7 @@ class TheFirstViewController: BaseSourceCode.ViewController, Alertable {
 	@IBAction func fetchingData(_ sender: UIButton) {
 //		Post.fetchingData { (postsList, error) in
 //			if let err = error {
-//				self.showALert("", err.localizedDescription)
+//				self.showALert("", "\(err)")
 //			} else if let data = postsList {
 //				let str = data.map({
 //					return $0.title
@@ -168,15 +168,27 @@ class TheFirstViewController: BaseSourceCode.ViewController, Alertable {
 //			}
 //		}
 		
-		ResponseProvinceEntity.fetchingProvincesList { (data, error) in
+//		ResponseProvinceEntity.fetchingProvincesList { (data, error) in
+//			if let err = error {
+//				self.showALert("", "\(err)")
+//			} else if let `data` = data {
+//				let str = data.data.map({
+//					return $0.name
+//				})
+//				let smt = str.joined(separator: ", ")
+//				self.showALert("", data.msg)
+//			}
+//		}
+		
+		ResponsePostEntity.fetchingProvincesList { (data, error) in
 			if let err = error {
 				self.showALert("", "\(err)")
-			} else if let `data` = data {
-				let str = data.data.map({
-					return $0.name
+			} else if let uwrData = data {
+				let str = uwrData.comments!.map({
+					return $0.title
 				})
 				let smt = str.joined(separator: ", ")
-				self.showALert("", data.msg)
+				self.showALert("", smt)
 			}
 		}
 	}

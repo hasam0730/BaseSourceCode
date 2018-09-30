@@ -28,7 +28,7 @@ struct Post: ResponseObjectSerializable, ResponseCollectionSerializable {
 		
 	}
 	
-	static func fetchingData(completion: @escaping([Post]?, Error?)->()) {
+	static func fetchingData(completion: @escaping([Post]?, BackendError?)->()) {
 		NetworkManager.requestCollection(Router.serializingJSONCollections) { (value: NetworkManager.ResultRequest<DataResponse<[Post]>>) in
 			switch value {
 			case .success(let value):
