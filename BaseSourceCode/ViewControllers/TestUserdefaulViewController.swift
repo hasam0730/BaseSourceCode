@@ -11,7 +11,7 @@ import UIKit
 class TestUserdefaulViewController: UIViewController, Alertable {
 
 	@IBAction func showAction(_ sender: UIButton) {
-		showALert(UserHolder.name)
+		showALert("", UserHolder.name)
 	}
 	
 	@IBAction func setAction(_ sender: UIButton) {

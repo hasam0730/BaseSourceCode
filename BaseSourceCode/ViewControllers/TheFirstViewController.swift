@@ -16,7 +16,7 @@ class TheFirstViewController: BaseSourceCode.ViewController, Alertable {
     @IBOutlet weak var textView: UITextView!
     
     let user = UserLogin(username: nil, email: "hasam@gmail.com")
-    var locationsList: [LocationEntity]?
+
     let str = """
         <HEAD>
         <TITLE>Your Title Here</TITLE>
@@ -36,7 +36,7 @@ class TheFirstViewController: BaseSourceCode.ViewController, Alertable {
         </BODY>
         """
     
-    @IBAction func didSelectBtn(_ sender: UIButton) {
+    @IBAction func didSaveBtn(_ sender: UIButton) {
 		do {
 			try AuthController.shared.signIn(user: user, password: "tokencuahieu")
 		} catch let error {
@@ -47,9 +47,10 @@ class TheFirstViewController: BaseSourceCode.ViewController, Alertable {
 	@IBAction func getPassword(_ sender: UIButton) {
 		do {
 			let smt = try AuthController.shared.getPassword(user: user)
-			showALert(smt)
+			
+			showALert("Title", smt)
 		} catch let error {
-			showALert(error.localizedDescription)
+			showALert("", error.localizedDescription)
 		}
 	}
 	
@@ -60,7 +61,6 @@ class TheFirstViewController: BaseSourceCode.ViewController, Alertable {
 			print("🗿: \(error.localizedDescription)")
 		}
 	}
-	
 	
     @IBAction func didFetchData(_ sender: UIButton) {
 		let somt = tfMenu.getSelectedData()
@@ -78,22 +78,10 @@ class TheFirstViewController: BaseSourceCode.ViewController, Alertable {
 		imageView.image = img
 		
 		checkValidate()
-        
-        //--------------
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .decimal
-        formatter.groupingSeparator = " "
-//        formatter.groupingSeparator = Locale.current.groupingSeparator
-//        formatter.groupingSeparator = Locale(identifier: "FR_fr").groupingSeparator
-        
-        let amount = 2358000
-        let formattedString = formatter.string(for: amount)
-        print(formattedString.defaultIfNil)
-        
         //--------------
 		
 		tfMenu.callback = {
-			self.requestData()
+			self.dosomething()
 		}
 		
         //
@@ -115,8 +103,7 @@ class TheFirstViewController: BaseSourceCode.ViewController, Alertable {
         label.performPreparation()
         
         //
-        
-//         textView.linkTextAttributes = [NSAttributedStringKey.foregroundColor.rawValue: UIColor.red]
+//        textView.linkTextAttributes = [NSAttributedStringKey.foregroundColor.rawValue: UIColor.red]
 //        let attributedString = NSMutableAttributedString(string: "Tôi đã đọc và đồng ý với các Quy định bảo mật và Thoả thuận sử dụng")
 //		attributedString.addAttributes([.link: "a", .font: UIFont.boldSystemFont(ofSize: 15), .foregroundColor: UIColor.red], range: NSRange(location: 28, length: 17))
 //        attributedString.addAttributes([.link: "b", .font: UIFont.boldSystemFont(ofSize: 15), .foregroundColor: UIColor.red], range: NSRange(location: 48, length: 19))
@@ -157,7 +144,6 @@ class TheFirstViewController: BaseSourceCode.ViewController, Alertable {
 		case .Failure(let mess):
 			print(mess)
 		}
-		
 	}
     
     @IBAction func didTapShowPopUpBtn(_ sender: UIButton) {
@@ -168,41 +154,37 @@ class TheFirstViewController: BaseSourceCode.ViewController, Alertable {
         vc.smt = self.str.html2String
         UIWindow.topViewController()?.present(vc, animated: true)
     }
-    
-    
-    func requestData() {
-        if locationsList != nil {
-            let list = self.locationsList!.compactMap({
-                return $0.name
-            })
-            self.tfMenu.setData(itemsList: list)
-            return
-        }
-        let url = URL(string: "http://demo0368329.mockable.io/dataList")
-        let task = URLSession.shared.dataTask(with: url!) { data, response, error in
-            if error != nil {
-                print(error.debugDescription)
-            } else {
-                if let usableData = data {
-                    let dicData = try! JSONSerialization.jsonObject(with: usableData, options: [])
-                    if let uwrdata = dicData as? [String: Any], let data = uwrdata["data"] as? [[String: Any]] {
-                        self.locationsList = [LocationEntity]()
-                        data.forEach({
-                            let location = LocationEntity(dicData: $0)
-                            self.locationsList?.append(location)
-                        })
-                        let list = self.locationsList!.compactMap({
-                            return $0.name
-                        })
-                        DispatchQueue.main.async {
-                            self.tfMenu.setData(itemsList: list)
-                        }
-                    }
-                }
-            }
-        }
-        task.resume()
-    }
+	
+	@IBAction func fetchingData(_ sender: UIButton) {
+//		Post.fetchingData { (postsList, error) in
+//			if let err = error {
+//				self.showALert("", err.localizedDescription)
+//			} else if let data = postsList {
+//				let str = data.map({
+//					return $0.title
+//				})
+//				let smt = str.joined(separator: ", ")
+//				self.showALert("", smt)
+//			}
+//		}
+		
+		ResponseProvinceEntity.fetchingProvincesList { (data, error) in
+			if let err = error {
+				self.showALert("", "\(err)")
+			} else if let `data` = data {
+				let str = data.data.map({
+					return $0.name
+				})
+				let smt = str.joined(separator: ", ")
+				self.showALert("", data.msg)
+			}
+		}
+	}
+	
+	
+	func dosomething() {
+		
+	}
 }
 
 extension TheFirstViewController: UITextViewDelegate {

@@ -9,23 +9,23 @@
 import Foundation
 import Alamofire
 
-fileprivate let baseURLString = "http://vinastudy.hoanvusolutions.com.vn/api"
-fileprivate let phuoclocthoURLString = "http://phucloctho.hoanvusolutions.com.vn/api"
+fileprivate let demoUrl = "http://demo0368329.mockable.io"
+fileprivate let demoCollectionUrl = "http://demo3911457.mockable.io/"
+
 fileprivate let timeout = 5.0
 
 enum Router: URLRequestConvertible {
 	
-	case login(parameters: Parameters)
-	case list_level(id: Int)
-	case history_order(parameters: Parameters, headers: HTTPHeaders)
-	case transport(params: Parameters, headers: HTTPHeaders)
+	case demo
+	case singleJSONSerialization
+	case serializingJSONCollections
 	
 	var environmentBaseURL: String {
 		switch self {
-		case .login(_), .list_level(_):
-			return baseURLString
-		case .history_order(_, _), .transport(_, _):
-			return phuoclocthoURLString
+		case .demo:
+			return demoUrl
+		case .singleJSONSerialization, .serializingJSONCollections:
+			return demoCollectionUrl
 		}
 	}
 	
@@ -36,43 +36,46 @@ enum Router: URLRequestConvertible {
 	
 	var method: HTTPMethod {
 		switch self {
-		case .login(_), .transport(_, _):
-			return .post
-		case .list_level(_), .history_order(_):
+		case .demo, .singleJSONSerialization, .serializingJSONCollections:
 			return .get
 		}
 	}
 	
 	var path: String {
 		switch self {
-		case .login(_):
-			return "/user/login"
-		case.list_level(let id):
-			return "/course/list-level/\(id)"
-		case .history_order(_):
-			return "/transport/history-order"
-		case .transport(_, _):
-			return "/transport/order"
+		case .demo:
+			return "/dataList"
+		case .singleJSONSerialization:
+			return "/SingleJSONSerialization"
+		case .serializingJSONCollections:
+			return "/SerializingJSONCollections"
 		}
 	}
 	
-	var header: HTTPHeaders? {
+	var header: HTTPHeaders {
+		let headers = ["Accept": "application/json"]
 		switch self {
-		case .login(_), .list_level(_):
-			return nil
-		case .history_order(_, let headers), .transport(_, let headers):
-			return headers
+		case .demo, .singleJSONSerialization, .serializingJSONCollections:
+			break
 		}
+		return headers
 	}
 	
-	var components: URLComponents? {
-		switch self {
-		case .login(_):
-			return nil
-		case .list_level(_), .history_order(_), .transport(_, _):
-			return nil
-		}
-	}
+//	private var parameters: Parameters? {
+//		switch self {
+//		case .login(let email, let password):
+//			return [
+//				"email": email,
+//				"password": password
+//			]
+//		case .changePassword(let pass, let newPass, let confirmNewPass):
+//			return[
+//				"password": pass,
+//				"new_password": newPass,
+//				"new_password_confirmation": confirmNewPass
+//			]
+//		}
+//	}
 	
 	// MARK: URLRequestConvertible
 	
@@ -84,12 +87,8 @@ enum Router: URLRequestConvertible {
 		urlRequest.allHTTPHeaderFields = header
 
 		switch self {
-			case .login(let parameters), .transport(let parameters, _):
-				urlRequest = try URLEncoding.default.encode(urlRequest, with: parameters)
-			case .list_level(_):
+			case .demo, .singleJSONSerialization, .serializingJSONCollections:
 				break
-			case .history_order(let params, _):
-				urlRequest = try URLEncoding.queryString.encode(urlRequest, with: params)
 		}
 		return urlRequest
 	}
