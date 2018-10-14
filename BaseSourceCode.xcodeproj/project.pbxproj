@@ -47,6 +47,10 @@
 		8BC076EA215BDFB5008834FE /* ResponseProvinceEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC076E9215BDFB5008834FE /* ResponseProvinceEntity.swift */; };
 		8BC076EC215BDFF5008834FE /* ResponseSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC076EB215BDFF5008834FE /* ResponseSerializable.swift */; };
 		8BC076EE215BEB25008834FE /* ProvinceEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC076ED215BEB25008834FE /* ProvinceEntity.swift */; };
+		8BDBFE522169D9B4006FFA5C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDBFE512169D9B4006FFA5C /* SearchViewController.swift */; };
+		8BDBFE542169DA26006FFA5C /* ResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDBFE532169DA26006FFA5C /* ResultsTableViewController.swift */; };
+		8BDBFE562169F8C1006FFA5C /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDBFE552169F8C1006FFA5C /* UIViewController+Extension.swift */; };
+		8BF6391D2167C1B800F7C953 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF6391C2167C1B800F7C953 /* UIView+Extension.swift */; };
 		8F259C71213122250099F4D7 /* UIToolbar+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F259C70213122250099F4D7 /* UIToolbar+Extension.swift */; };
 		8F259C73213122880099F4D7 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F259C72213122880099F4D7 /* UITableView+Extension.swift */; };
 		8F259C75213123550099F4D7 /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F259C74213123550099F4D7 /* UICollectionView+Extension.swift */; };
@@ -138,6 +142,10 @@
 		8BC076E9215BDFB5008834FE /* ResponseProvinceEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseProvinceEntity.swift; sourceTree = "<group>"; };
 		8BC076EB215BDFF5008834FE /* ResponseSerializable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseSerializable.swift; sourceTree = "<group>"; };
 		8BC076ED215BEB25008834FE /* ProvinceEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProvinceEntity.swift; sourceTree = "<group>"; };
+		8BDBFE512169D9B4006FFA5C /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		8BDBFE532169DA26006FFA5C /* ResultsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsTableViewController.swift; sourceTree = "<group>"; };
+		8BDBFE552169F8C1006FFA5C /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		8BF6391C2167C1B800F7C953 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		8F259C70213122250099F4D7 /* UIToolbar+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIToolbar+Extension.swift"; sourceTree = "<group>"; };
 		8F259C72213122880099F4D7 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		8F259C74213123550099F4D7 /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
@@ -281,6 +289,8 @@
 				8B724B5A213BB51E00D038D4 /* Error+Extension.swift */,
 				9A801A7A2147C89400451C8E /* Date+Extension.swift */,
 				8B84346B216087C000B0238B /* Int+Extension.swift */,
+				8BF6391C2167C1B800F7C953 /* UIView+Extension.swift */,
+				8BDBFE552169F8C1006FFA5C /* UIViewController+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -320,6 +330,8 @@
 				8B80E75E213A90510002F599 /* TestUserdefaulViewController.swift */,
 				8B15B228213AD5E8006029B1 /* NetworkViewController.swift */,
 				9A411E0B2149274E00E45C2D /* LoadMoreViewController.swift */,
+				8BDBFE512169D9B4006FFA5C /* SearchViewController.swift */,
+				8BDBFE532169DA26006FFA5C /* ResultsTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -640,6 +652,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BDBFE562169F8C1006FFA5C /* UIViewController+Extension.swift in Sources */,
 				8B724B62213C3EC300D038D4 /* LoadMoreTableView.swift in Sources */,
 				8B724B59213BA7D100D038D4 /* NetworkHandler.swift in Sources */,
 				8B1E8AEA2132394700C883A5 /* GradientView.swift in Sources */,
@@ -657,6 +670,7 @@
 				8F259C71213122250099F4D7 /* UIToolbar+Extension.swift in Sources */,
 				8B15B227213ACF37006029B1 /* Router.swift in Sources */,
 				8F2609F32131477D0003F507 /* MenuTextField.swift in Sources */,
+				8BDBFE542169DA26006FFA5C /* ResultsTableViewController.swift in Sources */,
 				8B1E8AF02132396C00C883A5 /* BounceAnimationController.swift in Sources */,
 				8BC076EE215BEB25008834FE /* ProvinceEntity.swift in Sources */,
 				8B129F7521305D640008FF02 /* ValidateHandler.swift in Sources */,
@@ -664,6 +678,7 @@
 				9A8EE735214A1C0E0039BBCB /* TappableLabel.swift in Sources */,
 				8B129F7A213070B50008FF02 /* Optional+Extension.swift in Sources */,
 				8B129F782130663F0008FF02 /* UIDevice.swift in Sources */,
+				8BF6391D2167C1B800F7C953 /* UIView+Extension.swift in Sources */,
 				8B1E8AEE2132396C00C883A5 /* FadeOutAnimationController.swift in Sources */,
 				8F259C75213123550099F4D7 /* UICollectionView+Extension.swift in Sources */,
 				8F259C73213122880099F4D7 /* UITableView+Extension.swift in Sources */,
@@ -673,6 +688,7 @@
 				9A801A7B2147C89400451C8E /* Date+Extension.swift in Sources */,
 				8B030CDE2120456B00E0A1AF /* BaseSourceCode.xcdatamodeld in Sources */,
 				8BC076EA215BDFB5008834FE /* ResponseProvinceEntity.swift in Sources */,
+				8BDBFE522169D9B4006FFA5C /* SearchViewController.swift in Sources */,
 				8BB09327213A6CC700749A26 /* KeychainPasswordItem.swift in Sources */,
 				9A801A772147B1B800451C8E /* TicketPolicy.swift in Sources */,
 				8BB0932B213A713600749A26 /* Alertable+Extension.swift in Sources */,
@@ -863,15 +879,17 @@
 			baseConfigurationReference = 4F7F72F2FEB1344DA0C0A2E1 /* Pods-BaseSourceCode.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = TR3J5S5CGX;
+				DEVELOPMENT_TEAM = GF7JPD5X3J;
 				INFOPLIST_FILE = BaseSourceCode/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = hieu.nguyen.BaseSourceCode;
+				PRODUCT_BUNDLE_IDENTIFIER = com.baseSourceCode;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -882,15 +900,17 @@
 			baseConfigurationReference = 7AEA53DCCFD06292E04B97D4 /* Pods-BaseSourceCode.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = TR3J5S5CGX;
+				DEVELOPMENT_TEAM = GF7JPD5X3J;
 				INFOPLIST_FILE = BaseSourceCode/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = hieu.nguyen.BaseSourceCode;
+				PRODUCT_BUNDLE_IDENTIFIER = com.baseSourceCode;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

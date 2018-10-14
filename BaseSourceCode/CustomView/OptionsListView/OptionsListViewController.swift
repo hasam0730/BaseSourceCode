@@ -18,6 +18,11 @@ class OptionsListViewController: UIViewController {
 	var filteredList: [String]!
     var didSelect: ((_ data: String?) -> Void)?
 	
+	@IBAction func onClickPanGesture(_ sender: UIPanGestureRecognizer) {
+		
+	}
+	
+	
 	required init?(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
 		
@@ -50,6 +55,8 @@ class OptionsListViewController: UIViewController {
 		tableView.tableFooterView = UIView()
 		//
 		customSearchBar()
+		//
+		self.isSwipable()
     }
 	
 	private func customSearchBar() {

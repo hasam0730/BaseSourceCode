@@ -14,7 +14,9 @@ final class TappableLabel: UILabel {
         static let DetectableAttributeName = "DetectableAttributeName"
     }
     
-    var detectableText: String?
+    var firstDetectableText: String?
+	var secondDetectableText: String?
+
     var displayableContentText: String?
     
     var mainTextAttributes:[NSAttributedStringKey : AnyObject] = [:]
@@ -39,7 +41,7 @@ final class TappableLabel: UILabel {
         guard let searchableString = self.displayableContentText else { return }
         let attributtedString = NSMutableAttributedString(string: searchableString, attributes: mainTextAttributes)
 		
-        if let detectionText = detectableText {
+		if let detectionText = firstDetectableText {
 			
             var attributesForDetection:[NSAttributedStringKey : AnyObject] = [
                 NSAttributedStringKey(rawValue: Const.DetectableAttributeName) : "UserAction" as AnyObject

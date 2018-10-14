@@ -14,7 +14,10 @@ class TheFirstViewController: BaseSourceCode.ViewController, Alertable {
     @IBOutlet weak var tfMenu: MenuTextField!
     @IBOutlet weak var lblAgreementAndPolicy: UILabel!
     @IBOutlet weak var textView: UITextView!
-    
+	@IBOutlet weak var someView: UIView!
+	@IBOutlet weak var otherView: CustomView!
+	@IBOutlet weak var btn: UIButton!
+	
     let user = UserLogin(username: nil, email: "hasam@gmail.com")
 
     let str = """
@@ -91,7 +94,7 @@ class TheFirstViewController: BaseSourceCode.ViewController, Alertable {
         label.textColor = .black
 		label.backgroundColor = UIColor.green
         label.isUserInteractionEnabled = true
-        label.detectableText = "World!"
+        label.firstDetectableText = "World!"
         
         view.addSubview(label)
         
@@ -103,14 +106,6 @@ class TheFirstViewController: BaseSourceCode.ViewController, Alertable {
         label.performPreparation()
         
         //
-//        textView.linkTextAttributes = [NSAttributedStringKey.foregroundColor.rawValue: UIColor.red]
-//        let attributedString = NSMutableAttributedString(string: "Tôi đã đọc và đồng ý với các Quy định bảo mật và Thoả thuận sử dụng")
-//		attributedString.addAttributes([.link: "a", .font: UIFont.boldSystemFont(ofSize: 15), .foregroundColor: UIColor.red], range: NSRange(location: 28, length: 17))
-//        attributedString.addAttributes([.link: "b", .font: UIFont.boldSystemFont(ofSize: 15), .foregroundColor: UIColor.red], range: NSRange(location: 48, length: 19))
-//        attributedString.addAttributes([.font: UIFont.boldSystemFont(ofSize: 20), .foregroundColor: UIColor.red], range: NSRange(location: 0, length: 28))
-//        attributedString.addAttributes([.font: UIFont.boldSystemFont(ofSize: 20), .foregroundColor: UIColor.red], range: NSRange(location: 46, length: 2))
-//        textView.attributedText = attributedString
-//        textView.delegate = self
 		
 		textView.text = "Tôi đã đọc và Quy định bảo mật"
 		textView.textColor = .black
@@ -134,6 +129,16 @@ class TheFirstViewController: BaseSourceCode.ViewController, Alertable {
 		textView.isEditable = false
 		textView.isSelectable = true
 		textView.delegate = self
+		
+		//
+		someView.addGradient(colors: [.green, .yellow], direction: .genkiApp)
+		
+		//
+		UIView.animate(withDuration: 30) {
+			self.otherView.frame.origin.x = 10
+			self.someView.frame.origin.x = 2000
+			self.btn.frame.origin.x = 0
+		}
 	}
 	
 	func checkValidate() {
@@ -191,11 +196,30 @@ class TheFirstViewController: BaseSourceCode.ViewController, Alertable {
 				self.showALert("", smt)
 			}
 		}
+		
+//		Post.fetchingData { (post, error) in
+//			if let err = error {
+//				print(err)
+//			} else if let p = post {
+//				print(post)
+//			}
+//		}
+		
 	}
 	
-	
 	func dosomething() {
-		
+		ResponsePostEntity.fetchingProvincesList { (data, error) in
+			if let err = error {
+				self.showALert("", "\(err)")
+			} else if let uwrData = data {
+				let str = uwrData.comments!.map({
+					return $0.title
+				})
+//				let smt = str.joined(separator: ", ")
+//				self.showALert("", smt)
+				self.tfMenu.setData(itemsList: str)
+			}
+		}
 	}
 }
 
