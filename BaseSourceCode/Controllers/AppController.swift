@@ -46,12 +46,14 @@ final class AppController {
 	}
 	
 	func setupNavigationBar() {
-		UINavigationBar.appearance().isTranslucent = false
-		UINavigationBar.appearance().alpha = 1.0
-		UINavigationBar.appearance().barStyle = UIBarStyle.black
-		UINavigationBar.appearance().setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-		UINavigationBar.appearance().tintColor = .brown
-		UINavigationBar.appearance().barTintColor = UIColor(red: 87/255, green: 69/255, blue: 192/255, alpha: 1.0)
-		UINavigationBar.appearance().barStyle = UIBarStyle.blackOpaque
+//		UINavigationBar.appearance().isTranslucent = false
+//		UINavigationBar.appearance().alpha = 1.0
+//		UINavigationBar.appearance().barStyle = UIBarStyle.black
+//		UINavigationBar.appearance().setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+//		UINavigationBar.appearance().tintColor = .brown
+//		UINavigationBar.appearance().barTintColor = UIColor(red: 87/255, green: 69/255, blue: 192/255, alpha: 1.0)
+//		UINavigationBar.appearance().barStyle = UIBarStyle.blackOpaque
+		
+		
 	}
 }

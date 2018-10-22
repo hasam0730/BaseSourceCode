@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TestUserdefaulViewController: UIViewController, Alertable {
+class TestUserdefaulViewController: ViewController, Alertable {
 
 	@IBAction func showAction(_ sender: UIButton) {
 		showALert("", UserHolder.name)

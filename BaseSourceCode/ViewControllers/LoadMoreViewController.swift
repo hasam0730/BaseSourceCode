@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoadMoreViewController: UIViewController {
+class LoadMoreViewController: ViewController {
     
     @IBOutlet weak var tableView: UITableView!
     var array = Array(repeating: 2, count: 30)
