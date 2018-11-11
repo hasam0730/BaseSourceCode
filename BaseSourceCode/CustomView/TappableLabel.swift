@@ -16,13 +16,15 @@ final class TappableLabel: UILabel {
     
     var firstDetectableText: String?
 	var secondDetectableText: String?
-
+	var detectableTextList: [String]?
+	
+	
     var displayableContentText: String?
     
     var mainTextAttributes:[NSAttributedStringKey : AnyObject] = [:]
     var tappableTextAttributes:[NSAttributedStringKey : AnyObject] = [:]
     
-    var didDetectTapOnText:((_:String, NSRange) -> ())?
+    var didDetectTapOnText:((String, Int) -> ())?
     
     private var tapGesture:UITapGestureRecognizer?
     
@@ -41,44 +43,25 @@ final class TappableLabel: UILabel {
         guard let searchableString = self.displayableContentText else { return }
         let attributtedString = NSMutableAttributedString(string: searchableString, attributes: mainTextAttributes)
 		
-		if let detectionText = firstDetectableText {
-			
-            var attributesForDetection:[NSAttributedStringKey : AnyObject] = [
-                NSAttributedStringKey(rawValue: Const.DetectableAttributeName) : "UserAction" as AnyObject
-            ]
-            tappableTextAttributes.forEach {
-                attributesForDetection.updateValue($1, forKey: $0)
-            }
-			
-            for (_ ,range) in searchableString.rangesOfPattern(patternString: detectionText).enumerated() {
-                let tappableRange = searchableString.nsRange(from: range)
-                attributtedString.addAttributes(attributesForDetection, range: tappableRange!)
-            }
-			
-            if self.tapGesture == nil {
-                setupTouch()
-            }
-        }
-		
-		if let detectionText = secondDetectableText {
-			
-			var attributesForDetection:[NSAttributedStringKey : AnyObject] = [
-				NSAttributedStringKey(rawValue: Const.DetectableAttributeName) : "UserAction" as AnyObject
-			]
-			tappableTextAttributes.forEach {
-				attributesForDetection.updateValue($1, forKey: $0)
-			}
-			
-			for (_ ,range) in searchableString.rangesOfPattern(patternString: detectionText).enumerated() {
-				let tappableRange = searchableString.nsRange(from: range)
-				attributtedString.addAttributes(attributesForDetection, range: tappableRange!)
-			}
-			
-			if self.tapGesture == nil {
-				setupTouch()
+		if let uwrDetectableTextList = detectableTextList {
+			uwrDetectableTextList.forEach {
+				var attributesForDetection:[NSAttributedStringKey : AnyObject] = [
+					NSAttributedStringKey(rawValue: Const.DetectableAttributeName) : "UserAction" as AnyObject
+				]
+				tappableTextAttributes.forEach {
+					attributesForDetection.updateValue($1, forKey: $0)
+				}
+				
+				for (_ ,range) in searchableString.rangesOfPattern(patternString: $0).enumerated() {
+					let tappableRange = searchableString.nsRange(from: range)
+					attributtedString.addAttributes(attributesForDetection, range: tappableRange!)
+				}
+				
+				if self.tapGesture == nil {
+					setupTouch()
+				}
 			}
 		}
-		
         text = nil
         attributedText = attributtedString
     }
@@ -130,12 +113,28 @@ final class TappableLabel: UILabel {
             
             let attributeName = Const.DetectableAttributeName
             let attributeValue = self.attributedText?.attribute(NSAttributedStringKey(rawValue: attributeName), at: characterIndex, effectiveRange: nil) as? String
-            if let _ = attributeValue,
-                let substring = substring {
+            if let _ = attributeValue, let _ = substring {
                 DispatchQueue.main.async {
-                    self.didDetectTapOnText?(substring, tapRange)
+					let smt = self.handleDetectableIndex(range: tapRange)
+					self.didDetectTapOnText!(smt!.0, smt!.1)
                 }
             }
         }
     }
+	
+	func handleDetectableIndex(range: NSRange) -> (String, Int)? {
+		guard let uwrDetectableTextList = detectableTextList,
+				let searchableString = displayableContentText else { return nil }
+		let rangesList = uwrDetectableTextList.compactMap {
+			return (searchableString as NSString).range(of: $0, options: .caseInsensitive)
+		}
+		
+		for indx in 0..<rangesList.count {
+			let rs = (rangesList[indx].contains(range.location), indx)
+			if rs.0 {
+				return (uwrDetectableTextList[indx], indx)
+			}
+		}
+		return nil
+	}
 }

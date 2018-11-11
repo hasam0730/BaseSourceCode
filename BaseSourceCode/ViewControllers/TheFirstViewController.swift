@@ -12,7 +12,7 @@ class TheFirstViewController: BaseSourceCode.ViewController, Alertable {
 //    https://www.mockable.io/a/#/space/demo0368329/rest/UAAAAAAAA
 	@IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var tfMenu: MenuTextField!
-    @IBOutlet weak var lblAgreementAndPolicy: UILabel!
+    @IBOutlet weak var lblAgreementAndPolicy: TappableLabel!
     @IBOutlet weak var textView: UITextView!
 	@IBOutlet weak var someView: UIView!
 	@IBOutlet weak var otherView: GradientView!
@@ -102,25 +102,17 @@ class TheFirstViewController: BaseSourceCode.ViewController, Alertable {
 		}
 		
         //
-        let label = TappableLabel()
-        label.frame = CGRect(x: 150, y: 300, width: 200, height: 20)
-        label.displayableContentText = "Hello World! stackoverflow"
-        label.textColor = .black
-		label.backgroundColor = UIColor.green
-        label.isUserInteractionEnabled = true
-        label.firstDetectableText = "World!"
-		label.secondDetectableText = "Hello"
-        
-        view.addSubview(label)
-        
-        let range = (label.displayableContentText! as NSString).range(of: "World", options: .caseInsensitive)
-		let rangesList = 
-        label.didDetectTapOnText = { (value1, value2) in
-            print("\(value1) - \(value2)\n")
-            print("😇\(range.contains(value2.location))")
+		lblAgreementAndPolicy.displayableContentText = "Read A agreement and usually legally policy understanding between two or"
+        lblAgreementAndPolicy.textColor = .black
+		lblAgreementAndPolicy.backgroundColor = UIColor.green
+        lblAgreementAndPolicy.isUserInteractionEnabled = true
+		lblAgreementAndPolicy.detectableTextList = ["  agreement", "legally policy"]
+        lblAgreementAndPolicy.didDetectTapOnText = { string, indx in
+			print("🍔\(string)-\(indx)")
         }
-        label.performPreparation()
-        
+		
+		lblAgreementAndPolicy.performPreparation()
+		
         //
 		
 		textView.text = "Tôi đã đọc và Quy định bảo mật"
