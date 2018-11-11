@@ -24,7 +24,13 @@ class TestUserdefaulViewController: ViewController, Alertable {
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
-
-		
     }
+	
+	override var navigationBartintColor: UIColor {
+		return UIColor.green
+	}
+	
+	override var navigationBarBackIcon: UIImage {
+		return UIImage(named: "ico_down")!
+	}
 }

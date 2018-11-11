@@ -15,8 +15,10 @@ class TheFirstViewController: BaseSourceCode.ViewController, Alertable {
     @IBOutlet weak var lblAgreementAndPolicy: UILabel!
     @IBOutlet weak var textView: UITextView!
 	@IBOutlet weak var someView: UIView!
-	@IBOutlet weak var otherView: CustomView!
-	@IBOutlet weak var btn: UIButton!
+	@IBOutlet weak var otherView: GradientView!
+	@IBOutlet weak var gradientView: UIView!
+	@IBOutlet weak var firstView: GradientView!
+	@IBOutlet weak var secondView: GradientView!
 	
     let user = UserLogin(username: nil, email: "hasam@gmail.com")
 
@@ -38,7 +40,11 @@ class TheFirstViewController: BaseSourceCode.ViewController, Alertable {
         <HR>
         </BODY>
         """
-    
+	
+	override var navigationBarBackItemTitle: String {
+		return "test user"
+	}
+	
     @IBAction func didSaveBtn(_ sender: UIButton) {
 		do {
 			try AuthController.shared.signIn(user: user, password: "tokencuahieu")
@@ -67,15 +73,23 @@ class TheFirstViewController: BaseSourceCode.ViewController, Alertable {
 	
     @IBAction func didFetchData(_ sender: UIButton) {
 		let somt = tfMenu.getSelectedData()
-		print(somt.0.defaultIfNil)
-		print(somt.1.defaultIfNil)
+		print(somt.0.value(or: ""))
+		print(somt.1.value(or: 0))
     }
     
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		//
+		let struc = SomeStruct()
+		struc.dosomething()
+		print("🌴: \(struc.property)")
+		
+		let clas = SomeClass()
+		print("🌴: \(clas.property)")
+		clas.dosomething()
+		//
 		let value = "10.30"
-		print(value.formatDecimalNumber(withDecimalPlace: "2").defaultIfNil)
+		print(value.formatDecimalNumber(withDecimalPlace: "2").value(or: ""))
 		
 		let img = imageView.resizeImage(image: #imageLiteral(resourceName: "image"), with: CGSize(width: 100, height: 50))
 		imageView.image = img
@@ -95,10 +109,12 @@ class TheFirstViewController: BaseSourceCode.ViewController, Alertable {
 		label.backgroundColor = UIColor.green
         label.isUserInteractionEnabled = true
         label.firstDetectableText = "World!"
+		label.secondDetectableText = "Hello"
         
         view.addSubview(label)
         
         let range = (label.displayableContentText! as NSString).range(of: "World", options: .caseInsensitive)
+		let rangesList = 
         label.didDetectTapOnText = { (value1, value2) in
             print("\(value1) - \(value2)\n")
             print("😇\(range.contains(value2.location))")
@@ -130,15 +146,16 @@ class TheFirstViewController: BaseSourceCode.ViewController, Alertable {
 		textView.isSelectable = true
 		textView.delegate = self
 		
-		//
-		someView.addGradient(colors: [.green, .yellow], direction: .genkiApp)
 		
 		//
 		UIView.animate(withDuration: 30) {
 			self.otherView.frame.origin.x = 10
 			self.someView.frame.origin.x = 2000
-			self.btn.frame.origin.x = 0
 		}
+
+		
+		
+		
 	}
 	
 	func checkValidate() {

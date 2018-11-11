@@ -49,7 +49,9 @@ class SearchViewController: UIViewController {
 		controladorDeBusca.searchBar.tintColor = self.view.tintColor
 		
 		//Adiciona a barra do Controlador de Busca a barra do navegador
-		navigationItem.titleView = controladorDeBusca.searchBar
+		let v = UIView(frame: CGRect(x: 0, y: 10, width: UIScreen.main.bounds.width, height: 74.0))
+		v.addSubview(controladorDeBusca.searchBar)
+		navigationItem.titleView = v
 	}
 }
 

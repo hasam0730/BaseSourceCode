@@ -60,6 +60,25 @@ final class TappableLabel: UILabel {
             }
         }
 		
+		if let detectionText = secondDetectableText {
+			
+			var attributesForDetection:[NSAttributedStringKey : AnyObject] = [
+				NSAttributedStringKey(rawValue: Const.DetectableAttributeName) : "UserAction" as AnyObject
+			]
+			tappableTextAttributes.forEach {
+				attributesForDetection.updateValue($1, forKey: $0)
+			}
+			
+			for (_ ,range) in searchableString.rangesOfPattern(patternString: detectionText).enumerated() {
+				let tappableRange = searchableString.nsRange(from: range)
+				attributtedString.addAttributes(attributesForDetection, range: tappableRange!)
+			}
+			
+			if self.tapGesture == nil {
+				setupTouch()
+			}
+		}
+		
         text = nil
         attributedText = attributtedString
     }

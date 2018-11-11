@@ -57,6 +57,7 @@ class MenuTextField: IconTextField {
 	
 	func setData(itemsList: [String]) {
 		dataList = itemsList
+		rightView = tempedView
 	}
 	
 	func getSelectedData() -> (String?, Int?) {

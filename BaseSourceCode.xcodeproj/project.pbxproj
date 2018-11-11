@@ -27,10 +27,11 @@
 		8B15B227213ACF37006029B1 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B15B226213ACF37006029B1 /* Router.swift */; };
 		8B15B229213AD5E8006029B1 /* NetworkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B15B228213AD5E8006029B1 /* NetworkViewController.swift */; };
 		8B1E8AE82132393F00C883A5 /* DimmingPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1E8AE72132393F00C883A5 /* DimmingPresentationController.swift */; };
-		8B1E8AEA2132394700C883A5 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1E8AE92132394700C883A5 /* GradientView.swift */; };
 		8B1E8AEE2132396C00C883A5 /* FadeOutAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1E8AEB2132396B00C883A5 /* FadeOutAnimationController.swift */; };
 		8B1E8AEF2132396C00C883A5 /* SlideOutAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1E8AEC2132396B00C883A5 /* SlideOutAnimationController.swift */; };
 		8B1E8AF02132396C00C883A5 /* BounceAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1E8AED2132396B00C883A5 /* BounceAnimationController.swift */; };
+		8B2021DB2197501000FACD4B /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2021DA2197501000FACD4B /* GradientView.swift */; };
+		8B207F40217F7BD5003317AA /* GenericStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B207F3F217F7BD5003317AA /* GenericStruct.swift */; };
 		8B724B59213BA7D100D038D4 /* NetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B724B58213BA7D100D038D4 /* NetworkHandler.swift */; };
 		8B724B5B213BB51E00D038D4 /* Error+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B724B5A213BB51E00D038D4 /* Error+Extension.swift */; };
 		8B724B62213C3EC300D038D4 /* LoadMoreTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B724B61213C3EC300D038D4 /* LoadMoreTableView.swift */; };
@@ -122,10 +123,11 @@
 		8B15B226213ACF37006029B1 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		8B15B228213AD5E8006029B1 /* NetworkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkViewController.swift; sourceTree = "<group>"; };
 		8B1E8AE72132393F00C883A5 /* DimmingPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DimmingPresentationController.swift; sourceTree = "<group>"; };
-		8B1E8AE92132394700C883A5 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		8B1E8AEB2132396B00C883A5 /* FadeOutAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FadeOutAnimationController.swift; sourceTree = "<group>"; };
 		8B1E8AEC2132396B00C883A5 /* SlideOutAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideOutAnimationController.swift; sourceTree = "<group>"; };
 		8B1E8AED2132396B00C883A5 /* BounceAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BounceAnimationController.swift; sourceTree = "<group>"; };
+		8B2021DA2197501000FACD4B /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		8B207F3F217F7BD5003317AA /* GenericStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericStruct.swift; sourceTree = "<group>"; };
 		8B724B58213BA7D100D038D4 /* NetworkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHandler.swift; sourceTree = "<group>"; };
 		8B724B5A213BB51E00D038D4 /* Error+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+Extension.swift"; sourceTree = "<group>"; };
 		8B724B61213C3EC300D038D4 /* LoadMoreTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadMoreTableView.swift; sourceTree = "<group>"; };
@@ -365,6 +367,7 @@
 				8F2609F4213148C90003F507 /* IconTextField.swift */,
 				8B724B61213C3EC300D038D4 /* LoadMoreTableView.swift */,
 				9A8EE734214A1C0E0039BBCB /* TappableLabel.swift */,
+				8B2021DA2197501000FACD4B /* GradientView.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -375,7 +378,6 @@
 				8B1E8AED2132396B00C883A5 /* BounceAnimationController.swift */,
 				8B1E8AEB2132396B00C883A5 /* FadeOutAnimationController.swift */,
 				8B1E8AEC2132396B00C883A5 /* SlideOutAnimationController.swift */,
-				8B1E8AE92132394700C883A5 /* GradientView.swift */,
 				8B1E8AE72132393F00C883A5 /* DimmingPresentationController.swift */,
 				8F2609F7213156BB0003F507 /* OptionsListViewController.swift */,
 				8F2609F8213156BC0003F507 /* OptionsListViewController.xib */,
@@ -391,6 +393,7 @@
 				8BC076ED215BEB25008834FE /* ProvinceEntity.swift */,
 				8B843469215FD91500B0238B /* PostEntity.swift */,
 				8B79A6682161390100371BA9 /* ResponsePostEntity.swift */,
+				8B207F3F217F7BD5003317AA /* GenericStruct.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -655,7 +658,6 @@
 				8BDBFE562169F8C1006FFA5C /* UIViewController+Extension.swift in Sources */,
 				8B724B62213C3EC300D038D4 /* LoadMoreTableView.swift in Sources */,
 				8B724B59213BA7D100D038D4 /* NetworkHandler.swift in Sources */,
-				8B1E8AEA2132394700C883A5 /* GradientView.swift in Sources */,
 				8B79A6692161390100371BA9 /* ResponsePostEntity.swift in Sources */,
 				8F2609FC21315B2D0003F507 /* UIWindow+Extension.swift in Sources */,
 				8BC076E8215BDB6F008834FE /* NetworkConnectionHandler.swift in Sources */,
@@ -690,6 +692,7 @@
 				8BC076EA215BDFB5008834FE /* ResponseProvinceEntity.swift in Sources */,
 				8BDBFE522169D9B4006FFA5C /* SearchViewController.swift in Sources */,
 				8BB09327213A6CC700749A26 /* KeychainPasswordItem.swift in Sources */,
+				8B207F40217F7BD5003317AA /* GenericStruct.swift in Sources */,
 				9A801A772147B1B800451C8E /* TicketPolicy.swift in Sources */,
 				8BB0932B213A713600749A26 /* Alertable+Extension.swift in Sources */,
 				9A801A7D2147CA8000451C8E /* CameraController.swift in Sources */,
@@ -697,6 +700,7 @@
 				8BB09329213A6CE800749A26 /* UserLogin.swift in Sources */,
 				8F2609F5213148C90003F507 /* IconTextField.swift in Sources */,
 				8B724B5B213BB51E00D038D4 /* Error+Extension.swift in Sources */,
+				8B2021DB2197501000FACD4B /* GradientView.swift in Sources */,
 				8B80E75F213A90510002F599 /* TestUserdefaulViewController.swift in Sources */,
 				9A411E0E214927D800E45C2D /* LoadMoreActivityController.swift in Sources */,
 				8B129F7321305A100008FF02 /* ScreenSize.swift in Sources */,

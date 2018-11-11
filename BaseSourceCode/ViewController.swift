@@ -13,11 +13,24 @@ class ViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		navigationItem.backBarButtonItem = UIBarButtonItem(title: "quay ve", style: .plain, target: nil, action: nil)
-		navigationController?.navigationBar.backIndicatorImage = UIImage(named: "ico_down")
-		navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "ico_down")
+		navigationItem.backBarButtonItem = UIBarButtonItem(title: navigationBarBackItemTitle, style: .plain, target: nil, action: nil)
+		navigationController?.navigationBar.backIndicatorImage = navigationBarBackIcon
+		navigationController?.navigationBar.backIndicatorTransitionMaskImage = navigationBarBackIcon
+		navigationController?.navigationBar.tintColor = navigationBartintColor
 	}
 	
+	
+	var navigationBarBackItemTitle: String {
+		return ""
+	}
+	
+	var navigationBartintColor: UIColor {
+		return UIColor.black
+	}
+	
+	var navigationBarBackIcon: UIImage {
+		return UIImage(named: "back")!
+	}
 	
 	
 	@objc
