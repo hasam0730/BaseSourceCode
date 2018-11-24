@@ -34,13 +34,3 @@ struct ProvinceEntity: ResponseObjectSerializable, ResponseCollectionSerializabl
 		self.chauLuc 		= chauLuc
 	}
 }
-
-extension ProvinceEntity {
-	static func collection(response: HTTPURLResponse, representation: [Any]) -> [ProvinceEntity?] {
-		guard let representation = representation as? [[String: Any]] else { return [nil] }
-		return representation.map {
-			ProvinceEntity(response: response, representation: $0)
-		}
-		
-	}
-}

@@ -95,7 +95,7 @@ class LoadMoreActivityController {
         }
         
         activityIndicatorView.stopAnimating()
-        activityIndicatorView.isHidden = false
+        activityIndicatorView.isHidden = true
     }
 }
 

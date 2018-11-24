@@ -7,13 +7,50 @@
 //
 
 import Foundation
+import UIKit
 
 extension String {
 	
-	func formatDecimalNumber(withDecimalPlace: String = "1") -> String? {
+	//MARK: check valid phone number
+	enum RegularExpressions: String {
+		case phone = "^\\s*(?:\\+?(\\d{1,3}))?([-. (]*(\\d{3})[-. )]*)?((\\d{3})[-. ]*(\\d{2,4})(?:[-.x ]*(\\d+))?)\\s*$"
+	}
+	
+	func isValid(regex: RegularExpressions) -> Bool {
+		return isValid(regex: regex.rawValue)
+	}
+	
+	func isValid(regex: String) -> Bool {
+		let matches = range(of: regex, options: .regularExpression)
+		return matches != nil
+	}
+	
+	func onlyDigits() -> String {
+		let filtredUnicodeScalars = unicodeScalars.filter{CharacterSet.decimalDigits.contains($0)}
+		return String(String.UnicodeScalarView(filtredUnicodeScalars))
+	}
+	
+	// usage: "+84-(906)-787-605".makeAColl()
+	func makeACall() -> Bool {
+		guard isValid(regex: .phone),
+			let url = URL(string: "tel://\(self.onlyDigits())"),
+			UIApplication.shared.canOpenURL(url) else {
+				
+				return false
+		}
+		if #available(iOS 10, *) {
+			UIApplication.shared.open(url)
+			return true
+		} else {
+			UIApplication.shared.openURL(url)
+			return true
+		}
+	}
+	
+	func formatDecimalNumber(withDecimalPlace: Int = 1) -> String? {
 		let formatter = NumberFormatter()
 		formatter.minimumFractionDigits = 0
-		formatter.maximumFractionDigits = 2
+		formatter.maximumFractionDigits = withDecimalPlace
 		formatter.numberStyle = .decimal
 		// formatter.locale = Locale.current //(identifier: "de_DE")
 		guard let castedDoubleValue = Double(self) as NSNumber? else { return nil }
@@ -98,4 +135,6 @@ extension String {
 			else { return nil }
 		return from ..< to
 	}
+	
+	
 }

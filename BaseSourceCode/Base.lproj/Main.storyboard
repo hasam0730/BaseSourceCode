@@ -10,6 +10,41 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Custom View Controller-->
+        <scene sceneID="amk-Cp-pjT">
+            <objects>
+                <viewController id="rNB-Xw-Ld5" customClass="CustomViewController" customModule="BaseSourceCode" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="loW-ha-jNS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="skP-s6-V8W" customClass="Switch" customModule="BaseSourceCode" customModuleProvider="target">
+                                <rect key="frame" x="105" y="96" width="144" height="71"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="topSwitchChangeState:" destination="rNB-Xw-Ld5" eventType="valueChanged" id="6It-wI-BGF"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SQG-py-cDW" customClass="Switch" customModule="BaseSourceCode" customModuleProvider="target">
+                                <rect key="frame" x="105" y="175" width="144" height="71"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="WvD-Ow-fU5"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="wgm-iV-bso"/>
+                    <connections>
+                        <outlet property="bottomSwitch" destination="SQG-py-cDW" id="cyq-u0-WqT"/>
+                        <outlet property="topSwitch" destination="skP-s6-V8W" id="amW-8r-enM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XuT-tZ-byy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2515.9420289855075" y="590.21739130434787"/>
+        </scene>
         <!--Load More View Controller-->
         <scene sceneID="6uY-fF-pEq">
             <objects>
@@ -49,23 +84,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="image" translatesAutoresizingMaskIntoConstraints="NO" id="IW5-q0-6Mv">
-                                <rect key="frame" x="28" y="20" width="33" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="4"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vq6-g0-jvp">
-                                <rect key="frame" x="195" y="148" width="92" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="didFetchData"/>
-                                <connections>
-                                    <action selector="didFetchData:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hqn-f8-4Iq"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j81-hf-L5t">
                                 <rect key="frame" x="85" y="148" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -98,24 +116,8 @@
                                     <segue destination="heF-Gg-JRa" kind="show" id="1BR-wl-9ym"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cuI-4c-9i8">
-                                <rect key="frame" x="88" y="26" width="69" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="LoadMore"/>
-                                <connections>
-                                    <segue destination="hII-yw-IN1" kind="show" id="ID9-UH-ZuC"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jvn-8m-IId">
-                                <rect key="frame" x="176" y="33" width="81" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="showPopup"/>
-                                <connections>
-                                    <action selector="didTapShowPopUpBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Si3-8u-cjA"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EbA-fG-yfs" customClass="TappableLabel" customModule="BaseSourceCode" customModuleProvider="target">
-                                <rect key="frame" x="11" y="375" width="383" height="41"/>
+                                <rect key="frame" x="20" y="186" width="383" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <string key="text">Read A agreement and usually legally policy understanding between two or 
 
@@ -124,14 +126,6 @@ Read more: http://www.businessdictionary.com/definition/agreement.html</string>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="jO5-LN-4U0">
-                                <rect key="frame" x="32" y="492" width="240" height="68"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kAp-Li-1Uv" customClass="MenuTextField" customModule="BaseSourceCode" customModuleProvider="target">
                                 <rect key="frame" x="28" y="102" width="270" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -161,16 +155,8 @@ Read more: http://www.businessdictionary.com/definition/agreement.html</string>
                                     <segue destination="pL3-S6-MWf" kind="show" id="VMG-R9-2xz"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NSH-DF-Yog">
-                                <rect key="frame" x="227" y="439" width="71" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="FetchData"/>
-                                <connections>
-                                    <action selector="fetchingData:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5JA-8m-TRl"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R9F-HT-WGn">
-                                <rect key="frame" x="50" y="424" width="65" height="60"/>
+                                <rect key="frame" x="28" y="235" width="65" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
@@ -192,7 +178,7 @@ Read more: http://www.businessdictionary.com/definition/agreement.html</string>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f4Y-yP-2xa" customClass="GradientView" customModule="BaseSourceCode" customModuleProvider="target">
-                                <rect key="frame" x="129" y="424" width="79" height="60"/>
+                                <rect key="frame" x="107" y="235" width="79" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
@@ -234,113 +220,69 @@ Read more: http://www.businessdictionary.com/definition/agreement.html</string>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vgt-fE-Efe">
-                                <rect key="frame" x="0.0" y="212" width="414" height="65"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="65" id="Rkk-Xd-wyK"/>
-                                </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dak-gX-0hT">
-                                <rect key="frame" x="0.0" y="636" width="414" height="100"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="wXj-mb-C1g">
-                                        <rect key="frame" x="10" y="10" width="394" height="80"/>
-                                        <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uBp-dq-2eT" customClass="GradientView" customModule="BaseSourceCode" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="192" height="80"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="4"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                                        <real key="value" value="2"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                                        <real key="value" value="1"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
-                                                        <size key="value" width="1" height="1"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
-                                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="diagonalMode" value="YES"/>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="horizontalMode" value="YES"/>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="startColor">
-                                                        <color key="value" red="1" green="0.0" blue="0.75476241438356151" alpha="1" colorSpace="calibratedRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="endColor">
-                                                        <color key="value" red="0.74076242520000002" green="1" blue="0.64435606219999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="startLocation">
-                                                        <real key="value" value="0.5"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="endLocation">
-                                                        <real key="value" value="1"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="slZ-Kv-E3x" customClass="GradientView" customModule="BaseSourceCode" customModuleProvider="target">
-                                                <rect key="frame" x="202" y="0.0" width="192" height="80"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="gradientColor1">
-                                                        <color key="value" red="1" green="0.12320799659999999" blue="0.25748470379999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="gradientColor2">
-                                                        <color key="value" red="0.0" green="0.66666666669999997" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="point" keyPath="gradientStartPoint">
-                                                        <point key="value" x="0.0" y="0.5"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="point" keyPath="gradientEndPoint">
-                                                        <point key="value" x="1" y="0.5"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </view>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="wXj-mb-C1g" secondAttribute="bottom" constant="10" id="R1v-Cd-bol"/>
-                                    <constraint firstItem="wXj-mb-C1g" firstAttribute="leading" secondItem="Dak-gX-0hT" secondAttribute="leading" constant="10" id="Thc-4B-rXz"/>
-                                    <constraint firstAttribute="trailing" secondItem="wXj-mb-C1g" secondAttribute="trailing" constant="10" id="fye-A4-7rJ"/>
-                                    <constraint firstAttribute="height" constant="100" id="lH6-i0-aWI"/>
-                                    <constraint firstItem="wXj-mb-C1g" firstAttribute="top" secondItem="Dak-gX-0hT" secondAttribute="top" constant="10" id="muF-KG-q6U"/>
-                                </constraints>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hs4-09-C1E">
-                                <rect key="frame" x="275" y="312" width="47" height="30"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Mo0-vn-6Xs">
+                                <rect key="frame" x="85" y="315" width="138" height="258"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="search"/>
-                                <connections>
-                                    <segue destination="dZE-Mg-771" kind="push" id="zqv-ZS-jDP"/>
-                                </connections>
-                            </button>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jvn-8m-IId">
+                                        <rect key="frame" x="28.666666666666671" y="0.0" width="81" height="30"/>
+                                        <state key="normal" title="showPopup"/>
+                                        <connections>
+                                            <action selector="didTapShowPopUpBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Si3-8u-cjA"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mgi-73-IAb">
+                                        <rect key="frame" x="0.0" y="38" width="138" height="30"/>
+                                        <state key="normal" title="Load more movieDB"/>
+                                        <connections>
+                                            <segue destination="yVU-SE-stX" kind="push" id="h5q-r8-iM9"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cuI-4c-9i8">
+                                        <rect key="frame" x="34.666666666666657" y="76" width="69" height="30"/>
+                                        <state key="normal" title="LoadMore"/>
+                                        <connections>
+                                            <segue destination="hII-yw-IN1" kind="show" id="ID9-UH-ZuC"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NSH-DF-Yog">
+                                        <rect key="frame" x="33.666666666666657" y="114" width="71" height="30"/>
+                                        <state key="normal" title="FetchData"/>
+                                        <connections>
+                                            <action selector="fetchingData:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5JA-8m-TRl"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hs4-09-C1E">
+                                        <rect key="frame" x="45.666666666666657" y="152" width="47" height="30"/>
+                                        <state key="normal" title="search"/>
+                                        <connections>
+                                            <segue destination="dZE-Mg-771" kind="push" id="zqv-ZS-jDP"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vq6-g0-jvp">
+                                        <rect key="frame" x="23" y="190" width="92" height="30"/>
+                                        <state key="normal" title="didFetchData"/>
+                                        <connections>
+                                            <action selector="didFetchData:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hqn-f8-4Iq"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gNg-oW-6yO">
+                                        <rect key="frame" x="26" y="228" width="86" height="30"/>
+                                        <state key="normal" title="CustomView"/>
+                                        <connections>
+                                            <segue destination="rNB-Xw-Ld5" kind="push" id="oUr-0V-b5x"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.59348337669999995" green="0.72876857679999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="vgt-fE-Efe" secondAttribute="trailing" id="Hq4-Bp-T1e"/>
-                            <constraint firstItem="vgt-fE-Efe" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-123.5" id="Po7-Q6-JlR"/>
-                            <constraint firstAttribute="trailing" secondItem="Dak-gX-0hT" secondAttribute="trailing" id="dsJ-pj-yYx"/>
-                            <constraint firstItem="Dak-gX-0hT" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="fiv-YQ-nnk"/>
-                            <constraint firstItem="vgt-fE-Efe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="g64-k2-rv7"/>
-                            <constraint firstAttribute="bottom" secondItem="Dak-gX-0hT" secondAttribute="bottom" id="tIW-xR-Slp"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="firstView" destination="uBp-dq-2eT" id="QLY-Er-uZG"/>
-                        <outlet property="gradientView" destination="vgt-fE-Efe" id="2DZ-Ky-0Kv"/>
-                        <outlet property="imageView" destination="IW5-q0-6Mv" id="JUy-v9-ddH"/>
                         <outlet property="lblAgreementAndPolicy" destination="EbA-fG-yfs" id="Tvo-X8-Xjn"/>
                         <outlet property="otherView" destination="f4Y-yP-2xa" id="hom-8Z-DDG"/>
-                        <outlet property="secondView" destination="slZ-Kv-E3x" id="MVi-CT-bIP"/>
                         <outlet property="someView" destination="R9F-HT-WGn" id="wqL-Kc-XgR"/>
-                        <outlet property="textView" destination="jO5-LN-4U0" id="CdC-Ko-Ips"/>
                         <outlet property="tfMenu" destination="kAp-Li-1Uv" id="zas-cM-YUU"/>
                     </connections>
                 </viewController>
@@ -422,6 +364,28 @@ Read more: http://www.businessdictionary.com/definition/agreement.html</string>
                                     <action selector="cancelOne:" destination="pL3-S6-MWf" eventType="touchUpInside" id="uIv-qY-l8Z"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XKv-LL-42M" customClass="FocusTextfield" customModule="BaseSourceCode" customModuleProvider="target">
+                                <rect key="frame" x="71" y="121" width="263" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="becomeColor">
+                                        <color key="value" red="1" green="0.12320799659999999" blue="0.25748470379999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="resignColor">
+                                        <color key="value" red="0.74076242520000002" green="1" blue="0.64435606219999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pZe-I2-pNT">
+                                <rect key="frame" x="126" y="188" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="2Zs-t4-8Bx"/>
@@ -430,7 +394,42 @@ Read more: http://www.businessdictionary.com/definition/agreement.html</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fhb-Yu-zes" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-279.375" y="11.619718309859156"/>
+            <point key="canvasLocation" x="-279.71014492753625" y="11.413043478260871"/>
+        </scene>
+        <!--Load More MovieDB-->
+        <scene sceneID="5No-V9-Svq">
+            <objects>
+                <viewController id="yVU-SE-stX" customClass="LoadMoreMovieDB" customModule="BaseSourceCode" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="o9V-GL-D74">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Qm6-hI-qaf">
+                                <rect key="frame" x="0.0" y="20" width="414" height="716"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="yVU-SE-stX" id="8sU-us-RVt"/>
+                                    <outlet property="delegate" destination="yVU-SE-stX" id="Zjs-Dw-VU2"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Qm6-hI-qaf" firstAttribute="top" secondItem="Ooc-DL-Z34" secondAttribute="top" id="0sj-HR-bRo"/>
+                            <constraint firstItem="Qm6-hI-qaf" firstAttribute="leading" secondItem="Ooc-DL-Z34" secondAttribute="leading" id="PfW-0O-lRF"/>
+                            <constraint firstItem="Ooc-DL-Z34" firstAttribute="bottom" secondItem="Qm6-hI-qaf" secondAttribute="bottom" id="RON-s5-lik"/>
+                            <constraint firstItem="Ooc-DL-Z34" firstAttribute="trailing" secondItem="Qm6-hI-qaf" secondAttribute="trailing" id="xto-dc-TLK"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Ooc-DL-Z34"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ftR-ST-0k6"/>
+                    <connections>
+                        <outlet property="tableView" destination="Qm6-hI-qaf" id="AZP-pX-QdL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SnU-9h-EKL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="454" y="-245"/>
         </scene>
         <!--Search View Controller-->
         <scene sceneID="hMc-Gx-Dzd">
@@ -480,6 +479,5 @@ Read more: http://www.businessdictionary.com/definition/agreement.html</string>
     <resources>
         <image name="ico_down" width="80" height="80"/>
         <image name="ico_user" width="64" height="64"/>
-        <image name="image" width="947" height="947"/>
     </resources>
 </document>

@@ -13,12 +13,8 @@ class TheFirstViewController: BaseSourceCode.ViewController, Alertable {
 	@IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var tfMenu: MenuTextField!
     @IBOutlet weak var lblAgreementAndPolicy: TappableLabel!
-    @IBOutlet weak var textView: UITextView!
 	@IBOutlet weak var someView: UIView!
 	@IBOutlet weak var otherView: GradientView!
-	@IBOutlet weak var gradientView: UIView!
-	@IBOutlet weak var firstView: GradientView!
-	@IBOutlet weak var secondView: GradientView!
 	
     let user = UserLogin(username: nil, email: "hasam@gmail.com")
 
@@ -40,10 +36,6 @@ class TheFirstViewController: BaseSourceCode.ViewController, Alertable {
         <HR>
         </BODY>
         """
-	
-	override var navigationBarBackItemTitle: String {
-		return "test user"
-	}
 	
     @IBAction func didSaveBtn(_ sender: UIButton) {
 		do {
@@ -89,10 +81,10 @@ class TheFirstViewController: BaseSourceCode.ViewController, Alertable {
 		clas.dosomething()
 		//
 		let value = "10.30"
-		print(value.formatDecimalNumber(withDecimalPlace: "2").value(or: ""))
+		print(value.formatDecimalNumber(withDecimalPlace: 4).value(or: ""))
 		
-		let img = imageView.resizeImage(image: #imageLiteral(resourceName: "image"), with: CGSize(width: 100, height: 50))
-		imageView.image = img
+		let img = UIImage(named: "image1")?.resized(withPercentage: 0.1)
+		print("🍉: \(img!.size)")
 		
 		checkValidate()
         //--------------
@@ -106,38 +98,12 @@ class TheFirstViewController: BaseSourceCode.ViewController, Alertable {
         lblAgreementAndPolicy.textColor = .black
 		lblAgreementAndPolicy.backgroundColor = UIColor.green
         lblAgreementAndPolicy.isUserInteractionEnabled = true
-		lblAgreementAndPolicy.detectableTextList = ["  agreement", "legally policy"]
+		lblAgreementAndPolicy.detectableTextList = ["agreement", "legally policy"]
         lblAgreementAndPolicy.didDetectTapOnText = { string, indx in
 			print("🍔\(string)-\(indx)")
         }
 		
 		lblAgreementAndPolicy.performPreparation()
-		
-        //
-		
-		textView.text = "Tôi đã đọc và Quy định bảo mật"
-		textView.textColor = .black
-		let policyString = "Tôi đã đọc và"
-		let termString = "Quy định bảo mật"
-		let string = policyString + termString
-		let attributedString = NSMutableAttributedString(string: string)
-		let policyIndex = string.distance(from: string.startIndex, to:(string.range(of: policyString)!.lowerBound))
-		let termIndex = string.distance(from: string.startIndex, to:(string.range(of: termString)!.lowerBound))
-		attributedString.addAttribute(.link, value: "policy", range: NSRange(location: policyIndex, length: policyString.count))
-		attributedString.addAttribute(.link, value: "term", range: NSRange(location: termIndex, length: termString.count))
-		
-		attributedString.addAttribute(.underlineStyle, value: NSUnderlineStyle.styleSingle.rawValue, range: NSRange(location: policyIndex, length: policyString.count))
-		attributedString.addAttribute(.underlineStyle, value: NSUnderlineStyle.styleSingle.rawValue, range: NSRange(location: termIndex, length: termString.count))
-		
-		attributedString.addAttribute(.font, value: UIFont.boldSystemFont(ofSize: 12), range: NSRange(location: 0, length: string.utf16.count))
-		attributedString.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor.white, range: NSRange(location: 0, length: string.utf16.count))
-		
-		textView.linkTextAttributes = [NSAttributedStringKey.foregroundColor.rawValue: UIColor.white]
-		textView.attributedText = attributedString
-		textView.isEditable = false
-		textView.isSelectable = true
-		textView.delegate = self
-		
 		
 		//
 		UIView.animate(withDuration: 30) {
@@ -224,24 +190,8 @@ class TheFirstViewController: BaseSourceCode.ViewController, Alertable {
 				let str = uwrData.comments!.map({
 					return $0.title
 				})
-//				let smt = str.joined(separator: ", ")
-//				self.showALert("", smt)
 				self.tfMenu.setData(itemsList: str)
 			}
 		}
 	}
-}
-
-extension TheFirstViewController: UITextViewDelegate {
-	
-    func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
-        if URL.absoluteString == "a" {
-            print("GOOD")
-        }
-		
-        if URL.absoluteString == "b" {
-            print("GOOD 111")
-        }
-        return true
-    }
 }

@@ -20,6 +20,12 @@ extension UITableView {
     func register(header: UITableViewHeaderFooterView.Type) {
         self.register(header.self, forHeaderFooterViewReuseIdentifier: String(describing: header.self))
     }
+	
+	func registerHeaderXibFile<T: UITableViewHeaderFooterView>(_ type: T.Type) {
+		self.register(UINib(nibName: String(describing: T.self), bundle: nil), forHeaderFooterViewReuseIdentifier: String(describing: T.self))
+//			.register(UINib(nibName: String(describing: T.self), bundle: nil), forHeaderFooterViewReuseIdentifier: T.self)
+		
+	}
     
     //------
     func dequeue<T: UITableViewCell>(_: T.Type, for indexPath: IndexPath) -> T {

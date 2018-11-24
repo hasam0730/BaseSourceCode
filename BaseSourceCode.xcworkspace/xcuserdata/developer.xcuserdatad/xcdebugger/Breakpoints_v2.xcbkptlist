@@ -9,94 +9,14 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "BaseSourceCode/Entity/ResponseCoordinatorEntity.swift"
-            timestampString = "559912848.6640821"
+            filePath = "BaseSourceCode/ViewControllers/LoadMoreMovieDB/LoadMoreMovieDB.swift"
+            timestampString = "564739888.396526"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
-            landmarkName = "fetchingCoordinatorsList()"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
+            landmarkName = "scrollViewDidScroll(_:)"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BaseSourceCode/Entity/ResponseProvinceEntity.swift"
-            timestampString = "560448601.608565"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
-            landmarkName = "fetchingProvincesList(completion:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BaseSourceCode/CustomView/TappableLabel.swift"
-            timestampString = "563608353.030339"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "116"
-            endingLineNumber = "116"
-            landmarkName = "detectTouch(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BaseSourceCode/CustomView/TappableLabel.swift"
-            timestampString = "563608353.030453"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "117"
-            endingLineNumber = "117"
-            landmarkName = "detectTouch(_:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "BaseSourceCode.TappableLabel.(detectTouch in _ACF64216E1E6218EC212AF65DC78596E)(__C.UITapGestureRecognizer) -&gt; ()"
-                  moduleName = "BaseSourceCode"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/developer/Desktop/BaseSourceCode/BaseSourceCode/CustomView/TappableLabel.swift"
-                  timestampString = "563606845.174392"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "117"
-                  endingLineNumber = "117"
-                  offsetFromSymbolStart = "6182">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in BaseSourceCode.TappableLabel.(detectTouch in _ACF64216E1E6218EC212AF65DC78596E)(__C.UITapGestureRecognizer) -&gt; ()"
-                  moduleName = "BaseSourceCode"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/developer/Desktop/BaseSourceCode/BaseSourceCode/CustomView/TappableLabel.swift"
-                  timestampString = "563606845.178339"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "118"
-                  endingLineNumber = "118"
-                  offsetFromSymbolStart = "33">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

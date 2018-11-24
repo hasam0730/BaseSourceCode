@@ -11,14 +11,15 @@ import Alamofire
 
 fileprivate let demoUrl = "http://demo0368329.mockable.io"
 fileprivate let demoCollectionUrl = "http://demo3911457.mockable.io/"
-
-fileprivate let timeout = 5.0
+fileprivate let theMovieDBUrl = "https://api.themoviedb.org/3/movie"
+fileprivate let timeout = 25.0
 
 enum Router: URLRequestConvertible {
 	
 	case demo
 	case singleJSONSerialization
 	case serializingJSONCollections
+	case theMovieDB(params: Parameters)
 	
 	var environmentBaseURL: String {
 		switch self {
@@ -26,6 +27,8 @@ enum Router: URLRequestConvertible {
 			return demoUrl
 		case .singleJSONSerialization, .serializingJSONCollections:
 			return demoCollectionUrl
+		case .theMovieDB(_):
+			return theMovieDBUrl
 		}
 	}
 	
@@ -36,7 +39,7 @@ enum Router: URLRequestConvertible {
 	
 	var method: HTTPMethod {
 		switch self {
-		case .demo, .singleJSONSerialization, .serializingJSONCollections:
+		case .demo, .singleJSONSerialization, .serializingJSONCollections, .theMovieDB(_):
 			return .get
 		}
 	}
@@ -49,13 +52,15 @@ enum Router: URLRequestConvertible {
 			return "/SingleJSONSerialization"
 		case .serializingJSONCollections:
 			return "/SerializingJSONCollections"
+		case .theMovieDB(_):
+			return "/now_playing"
 		}
 	}
 	
 	var header: HTTPHeaders {
 		let headers = ["Accept": "application/json"]
 		switch self {
-		case .demo, .singleJSONSerialization, .serializingJSONCollections:
+		case .demo, .singleJSONSerialization, .serializingJSONCollections, .theMovieDB:
 			break
 		}
 		return headers
@@ -85,10 +90,11 @@ enum Router: URLRequestConvertible {
 		urlRequest.timeoutInterval = timeout
 		urlRequest.httpMethod = method.rawValue
 		urlRequest.allHTTPHeaderFields = header
-
 		switch self {
 			case .demo, .singleJSONSerialization, .serializingJSONCollections:
 				break
+			case .theMovieDB(let params):
+			urlRequest = try URLEncoding.default.encode(urlRequest, with: params)
 		}
 		return urlRequest
 	}

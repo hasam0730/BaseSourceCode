@@ -17,19 +17,29 @@ class ViewController: UIViewController {
 		navigationController?.navigationBar.backIndicatorImage = navigationBarBackIcon
 		navigationController?.navigationBar.backIndicatorTransitionMaskImage = navigationBarBackIcon
 		navigationController?.navigationBar.tintColor = navigationBartintColor
+		
+//		let backItem: UIBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "btn_back").withRenderingMode(.alwaysTemplate),
+//														style: .plain,
+//														target: self,
+//														action: #selector(didTapBackNavItem))
+//		navigationItem.leftBarButtonItem = backItem
 	}
 	
+	
+	@objc func didTapBackNavItem() {
+		navigationController?.popViewController(animated: true)
+	}
 	
 	var navigationBarBackItemTitle: String {
 		return ""
 	}
 	
 	var navigationBartintColor: UIColor {
-		return UIColor.black
+		return UIColor.green
 	}
 	
 	var navigationBarBackIcon: UIImage {
-		return UIImage(named: "back")!
+		return UIImage(named: "btn_back")!
 	}
 	
 	
