@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable
-class SwitchLabel: PLTSwitch {
+class SwitchLabel: Switch {
     
     @IBInspectable var title: String = ""
     
