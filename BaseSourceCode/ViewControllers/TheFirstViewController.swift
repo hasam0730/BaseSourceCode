@@ -129,7 +129,7 @@ class TheFirstViewController: BaseSourceCode.ViewController, Alertable {
     @IBAction func didTapShowPopUpBtn(_ sender: UIButton) {
         let vc = TicketPolicy(nibName: "TicketPolicy", bundle: nil)
         let transitioner = ModalTransitioningDelegate()
-        vc.modalPresentationStyle = .custom
+		vc.modalPresentationStyle = .custom
         vc.transitioningDelegate = transitioner
         vc.smt = self.str.html2String
         UIWindow.topViewController()?.present(vc, animated: true)
