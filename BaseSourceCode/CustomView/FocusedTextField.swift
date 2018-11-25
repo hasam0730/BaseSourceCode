@@ -29,7 +29,7 @@ class FocusTextfield: UITextField {
 		
 		autocorrectionType = .no
 		if !(self.layer.sublayers?.contains(underLine))! {
-			underLine.backgroundColor = becomeColor.cgColor
+			underLine.backgroundColor = resignColor.cgColor
 			underLine.frame = CGRect(x: 0, y: self.bounds.height-1, width: self.bounds.width, height: 1)
 			self.layer.addSublayer(underLine)
 			borderStyle = .none

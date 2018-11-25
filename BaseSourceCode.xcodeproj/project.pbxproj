@@ -39,6 +39,8 @@
 		8B2DE12621A8630000011DD5 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2DE12421A8630000011DD5 /* TableViewCell.swift */; };
 		8B2DE12721A8630000011DD5 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B2DE12521A8630000011DD5 /* TableViewCell.xib */; };
 		8B5BB0D221AA5044001F7672 /* DimmingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5BB0D121AA5044001F7672 /* DimmingView.swift */; };
+		8B5BB0D521AA570B001F7672 /* PopUpAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5BB0D421AA570B001F7672 /* PopUpAlert.swift */; };
+		8B5BB0D921AA5AED001F7672 /* PopUpAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B5BB0D821AA5AED001F7672 /* PopUpAlert.xib */; };
 		8B724B59213BA7D100D038D4 /* NetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B724B58213BA7D100D038D4 /* NetworkHandler.swift */; };
 		8B724B5B213BB51E00D038D4 /* Error+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B724B5A213BB51E00D038D4 /* Error+Extension.swift */; };
 		8B724B62213C3EC300D038D4 /* LoadMoreTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B724B61213C3EC300D038D4 /* LoadMoreTableView.swift */; };
@@ -146,6 +148,8 @@
 		8B2DE12421A8630000011DD5 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		8B2DE12521A8630000011DD5 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		8B5BB0D121AA5044001F7672 /* DimmingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimmingView.swift; sourceTree = "<group>"; };
+		8B5BB0D421AA570B001F7672 /* PopUpAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpAlert.swift; sourceTree = "<group>"; };
+		8B5BB0D821AA5AED001F7672 /* PopUpAlert.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopUpAlert.xib; sourceTree = "<group>"; };
 		8B724B58213BA7D100D038D4 /* NetworkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHandler.swift; sourceTree = "<group>"; };
 		8B724B5A213BB51E00D038D4 /* Error+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+Extension.swift"; sourceTree = "<group>"; };
 		8B724B61213C3EC300D038D4 /* LoadMoreTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadMoreTableView.swift; sourceTree = "<group>"; };
@@ -367,6 +371,15 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		8B5BB0D321AA56E8001F7672 /* PopUpAlert */ = {
+			isa = PBXGroup;
+			children = (
+				8B5BB0D421AA570B001F7672 /* PopUpAlert.swift */,
+				8B5BB0D821AA5AED001F7672 /* PopUpAlert.xib */,
+			);
+			path = PopUpAlert;
+			sourceTree = "<group>";
+		};
 		8B724B5C213BDCCC00D038D4 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -414,6 +427,7 @@
 		8F2609F1213147510003F507 /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
+				8B5BB0D321AA56E8001F7672 /* PopUpAlert */,
 				8BC5579A21A965B5000993C1 /* Switch */,
 				9A801A732147B1B800451C8E /* TicketPolicy */,
 				8F2609F6213156560003F507 /* OptionsListView */,
@@ -587,6 +601,7 @@
 				8B030CE32120456C00E0A1AF /* LaunchScreen.storyboard in Resources */,
 				8B2DE12721A8630000011DD5 /* TableViewCell.xib in Resources */,
 				8B25686D21A90EEF003C082F /* TableViewHeader.xib in Resources */,
+				8B5BB0D921AA5AED001F7672 /* PopUpAlert.xib in Resources */,
 				8F2609FA213156BC0003F507 /* OptionsListViewController.xib in Resources */,
 				9A801A762147B1B800451C8E /* TicketPolicy.xib in Resources */,
 				8B030CE02120456C00E0A1AF /* Assets.xcassets in Resources */,
@@ -767,6 +782,7 @@
 				8F2609F5213148C90003F507 /* IconTextField.swift in Sources */,
 				8B724B5B213BB51E00D038D4 /* Error+Extension.swift in Sources */,
 				8B2021DB2197501000FACD4B /* GradientView.swift in Sources */,
+				8B5BB0D521AA570B001F7672 /* PopUpAlert.swift in Sources */,
 				8B80E75F213A90510002F599 /* TestUserdefaulViewController.swift in Sources */,
 				9A411E0E214927D800E45C2D /* LoadMoreActivityController.swift in Sources */,
 				8B25686F21A91EF9003C082F /* MovieEntity.swift in Sources */,
