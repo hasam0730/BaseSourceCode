@@ -275,6 +275,17 @@ Read more: http://www.businessdictionary.com/definition/agreement.html</string>
                                     </button>
                                 </subviews>
                             </stackView>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2VS-m5-U5g" customClass="IconTextField" customModule="BaseSourceCode" customModuleProvider="target">
+                                <rect key="frame" x="231" y="250" width="136" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="leftImage" value="imgSideMenuSavedSearchNormal"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="rightImage" value="btnSearchResultDelete"/>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.59348337669999995" green="0.72876857679999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -477,7 +488,9 @@ Read more: http://www.businessdictionary.com/definition/agreement.html</string>
         </scene>
     </scenes>
     <resources>
+        <image name="btnSearchResultDelete" width="40.319999694824219" height="40.319999694824219"/>
         <image name="ico_down" width="80" height="80"/>
         <image name="ico_user" width="64" height="64"/>
+        <image name="imgSideMenuSavedSearchNormal" width="18.333333969116211" height="18.333333969116211"/>
     </resources>
 </document>

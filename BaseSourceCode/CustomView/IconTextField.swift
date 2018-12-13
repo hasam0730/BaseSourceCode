@@ -68,6 +68,12 @@ class IconTextField: UITextField {
             imageView.image = image.withRenderingMode(.alwaysTemplate)
             imageView.tintColor = color
             rightView = imageView
+			
+			let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
+//			tap.delegate = self // This is not required
+			rightView?.isUserInteractionEnabled = true
+			rightView?.addGestureRecognizer(tap)
+			self.placeholder = "Search ..."
         } else {
             rightViewMode = UITextFieldViewMode.never
             rightView = nil
@@ -76,5 +82,11 @@ class IconTextField: UITextField {
         // Placeholder text color
         attributedPlaceholder = NSAttributedString(string: placeholder != nil ?  placeholder! : "", attributes:[NSAttributedStringKey.foregroundColor: color])
     }
+	
+	
+	
+	@objc func handleTap(_ sender: UITapGestureRecognizer) {
+		self.text = ""
+	}
 
 }
