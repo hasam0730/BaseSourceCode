@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina5_5" orientation="portrait">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,7 +15,7 @@
             <objects>
                 <viewController id="rNB-Xw-Ld5" customClass="CustomViewController" customModule="BaseSourceCode" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="loW-ha-jNS">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="skP-s6-V8W" customClass="Switch" customModule="BaseSourceCode" customModuleProvider="target">
@@ -50,11 +50,11 @@
             <objects>
                 <viewController id="hII-yw-IN1" customClass="LoadMoreViewController" customModule="BaseSourceCode" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PIU-zh-uv5">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="u5m-UL-iyU">
-                                <rect key="frame" x="0.0" y="20" width="414" height="716"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
@@ -81,7 +81,7 @@
             <objects>
                 <viewController storyboardIdentifier="TheFirstViewController" id="BYZ-38-t0r" customClass="TheFirstViewController" customModule="BaseSourceCode" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j81-hf-L5t">
@@ -220,12 +220,31 @@ Read more: http://www.businessdictionary.com/definition/agreement.html</string>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2VS-m5-U5g" customClass="IconTextField" customModule="BaseSourceCode" customModuleProvider="target">
+                                <rect key="frame" x="231" y="250" width="136" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="leftImage" value="imgSideMenuSavedSearchNormal"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="rightImage" value="btnSearchResultDelete"/>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ax0-wi-XDP">
+                                <rect key="frame" x="16" y="554" width="343" height="106"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Mo0-vn-6Xs">
-                                <rect key="frame" x="85" y="315" width="138" height="258"/>
+                                <rect key="frame" x="181" y="288" width="138" height="258"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jvn-8m-IId">
-                                        <rect key="frame" x="28.666666666666671" y="0.0" width="81" height="30"/>
+                                        <rect key="frame" x="28.5" y="0.0" width="81" height="30"/>
                                         <state key="normal" title="showPopup"/>
                                         <connections>
                                             <action selector="didTapShowPopUpBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Si3-8u-cjA"/>
@@ -239,21 +258,21 @@ Read more: http://www.businessdictionary.com/definition/agreement.html</string>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cuI-4c-9i8">
-                                        <rect key="frame" x="34.666666666666657" y="76" width="69" height="30"/>
+                                        <rect key="frame" x="34.5" y="76" width="69" height="30"/>
                                         <state key="normal" title="LoadMore"/>
                                         <connections>
                                             <segue destination="hII-yw-IN1" kind="show" id="ID9-UH-ZuC"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NSH-DF-Yog">
-                                        <rect key="frame" x="33.666666666666657" y="114" width="71" height="30"/>
+                                        <rect key="frame" x="33.5" y="114" width="71" height="30"/>
                                         <state key="normal" title="FetchData"/>
                                         <connections>
                                             <action selector="fetchingData:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5JA-8m-TRl"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hs4-09-C1E">
-                                        <rect key="frame" x="45.666666666666657" y="152" width="47" height="30"/>
+                                        <rect key="frame" x="45.5" y="152" width="47" height="30"/>
                                         <state key="normal" title="search"/>
                                         <connections>
                                             <segue destination="dZE-Mg-771" kind="push" id="zqv-ZS-jDP"/>
@@ -275,17 +294,6 @@ Read more: http://www.businessdictionary.com/definition/agreement.html</string>
                                     </button>
                                 </subviews>
                             </stackView>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2VS-m5-U5g" customClass="IconTextField" customModule="BaseSourceCode" customModuleProvider="target">
-                                <rect key="frame" x="231" y="250" width="136" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="leftImage" value="imgSideMenuSavedSearchNormal"/>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="rightImage" value="btnSearchResultDelete"/>
-                                </userDefinedRuntimeAttributes>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.59348337669999995" green="0.72876857679999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -294,19 +302,20 @@ Read more: http://www.businessdictionary.com/definition/agreement.html</string>
                         <outlet property="lblAgreementAndPolicy" destination="EbA-fG-yfs" id="Tvo-X8-Xjn"/>
                         <outlet property="otherView" destination="f4Y-yP-2xa" id="hom-8Z-DDG"/>
                         <outlet property="someView" destination="R9F-HT-WGn" id="wqL-Kc-XgR"/>
+                        <outlet property="tapTextView" destination="ax0-wi-XDP" id="Fg6-qq-FxK"/>
                         <outlet property="tfMenu" destination="kAp-Li-1Uv" id="zas-cM-YUU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1317.3913043478262" y="-165.48913043478262"/>
+            <point key="canvasLocation" x="-1317.5999999999999" y="-165.96701649175412"/>
         </scene>
         <!--Test Userdefaul View Controller-->
         <scene sceneID="POq-Ef-lvL">
             <objects>
                 <viewController id="heF-Gg-JRa" customClass="TestUserdefaulViewController" customModule="BaseSourceCode" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OaN-9Y-hmy">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2QZ-Yb-Ssi">
@@ -348,7 +357,7 @@ Read more: http://www.businessdictionary.com/definition/agreement.html</string>
             <objects>
                 <viewController id="pL3-S6-MWf" customClass="NetworkViewController" customModule="BaseSourceCode" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7N3-GP-NW9">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7rP-Ym-ovf">
@@ -412,11 +421,11 @@ Read more: http://www.businessdictionary.com/definition/agreement.html</string>
             <objects>
                 <viewController id="yVU-SE-stX" customClass="LoadMoreMovieDB" customModule="BaseSourceCode" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="o9V-GL-D74">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Qm6-hI-qaf">
-                                <rect key="frame" x="0.0" y="20" width="414" height="716"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="yVU-SE-stX" id="8sU-us-RVt"/>
@@ -447,7 +456,7 @@ Read more: http://www.businessdictionary.com/definition/agreement.html</string>
             <objects>
                 <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="dZE-Mg-771" customClass="SearchViewController" customModule="BaseSourceCode" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fIb-SZ-aB3">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="sjs-cd-dBu"/>
@@ -463,15 +472,15 @@ Read more: http://www.businessdictionary.com/definition/agreement.html</string>
             <objects>
                 <tableViewController storyboardIdentifier="resultsTableViewController" id="BgD-XY-Cpd" customClass="ResultsTableViewController" customModule="BaseSourceCode" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="SOf-Mh-7Wp">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="searchCell" id="bbX-RR-d4y">
-                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bbX-RR-d4y" id="6dW-qn-h7c">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -488,9 +497,9 @@ Read more: http://www.businessdictionary.com/definition/agreement.html</string>
         </scene>
     </scenes>
     <resources>
-        <image name="btnSearchResultDelete" width="40.319999694824219" height="40.319999694824219"/>
-        <image name="ico_down" width="80" height="80"/>
-        <image name="ico_user" width="64" height="64"/>
-        <image name="imgSideMenuSavedSearchNormal" width="18.333333969116211" height="18.333333969116211"/>
+        <image name="btnSearchResultDelete" width="29.760000228881836" height="29.760000228881836"/>
+        <image name="ico_down" width="64" height="64"/>
+        <image name="ico_user" width="48" height="48"/>
+        <image name="imgSideMenuSavedSearchNormal" width="20" height="20"/>
     </resources>
 </document>

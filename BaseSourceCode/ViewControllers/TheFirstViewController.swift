@@ -15,6 +15,7 @@ class TheFirstViewController: BaseSourceCode.ViewController, Alertable {
     @IBOutlet weak var lblAgreementAndPolicy: TappableLabel!
 	@IBOutlet weak var someView: UIView!
 	@IBOutlet weak var otherView: GradientView!
+	@IBOutlet weak var tapTextView: UITextView!
 	
     let user = UserLogin(username: nil, email: "hasam@gmail.com")
 
@@ -112,8 +113,37 @@ class TheFirstViewController: BaseSourceCode.ViewController, Alertable {
 		}
 
 		
+		tapTextView.backgroundColor = .clear
+		tapTextView.isScrollEnabled = false
+		tapTextView.isEditable = false
+		tapTextView.textContainerInset = .zero
+		tapTextView.textContainer.lineFragmentPadding = 0
 		
+		let mutableAttributedString = NSMutableAttributedString(string: "More ways to shop: Visit an Apple Store, call 1-800-MY-APPLE, or find a reseller.")
+		mutableAttributedString.setAsLink(textToFind: "Apple Store", linkName: "AppleStoreLink")
+		mutableAttributedString.setAsLink(textToFind: "1-800-MY-APPLE", linkName: "ApplePhoneNumber")
+		mutableAttributedString.setAsLink(textToFind: "find a reseller", linkName: "FindReseller")
 		
+		tapTextView.attributedText = mutableAttributedString
+		
+	}
+	
+	
+	func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange) -> Bool {
+		if URL.absoluteString == "AppleStoreLink" {
+			// Handle action tap on AppleStoreLink
+			print("Go to Apple Store")
+			return true
+		} else if URL.absoluteString == "ApplePhoneNumber" {
+			// Handle action tap on ApplePhoneNumber
+			print("Call to Apple Phone")
+			return true
+		} else if URL.absoluteString == "FindReseller" {
+			// Handle action tap on FindReseller
+			print("Find a Reseller")
+			return true
+		}
+		return false
 	}
 	
 	func checkValidate() {
@@ -193,6 +223,18 @@ class TheFirstViewController: BaseSourceCode.ViewController, Alertable {
 				})
 				self.tfMenu.setData(itemsList: str)
 			}
+		}
+	}
+}
+
+
+
+
+extension NSMutableAttributedString {
+	func setAsLink(textToFind:String, linkName:String) {
+		let foundRange = self.mutableString.range(of: textToFind)
+		if foundRange.location != NSNotFound {
+			self.addAttribute(NSAttributedStringKey.link, value: linkName, range: foundRange)
 		}
 	}
 }
